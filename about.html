@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me – Taher</title>
+  <!-- Favicon (cartoon type) -->
+  <link rel="icon" href="cube-favicon.jpeg" type="image/jpeg" />
+
+  <!-- Funky/Hand-Drawn + Clean Font Combo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Open+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* BODY: a bold background, fade-in animation */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #FDE5E5 0%, #FEDFF4 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: fadeIn 1s ease forwards;
+      overflow: hidden; /* If shapes go off-screen */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ROTATING SHAPES: we’ll do 2 for extra funk */
+    .rotating-shape {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 20%;
+      opacity: 0.7;
+      animation: rotateShape 10s linear infinite;
+      z-index: 0;
+    }
+    .rotating-shape1 {
+      top: -50px; 
+      left: -50px;
+      background: #ffa14c;  /* orange-ish */
+    }
+    .rotating-shape2 {
+      bottom: -70px; 
+      right: -50px;
+      background: #82fcd8;  /* aqua */
+      animation-duration: 14s; /* different speed to vary the effect */
+    }
+
+    /* Keyframe for continuous rotation */
+    @keyframes rotateShape {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* MAIN CONTAINER for content (above shapes) */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 2rem;
+      text-align: center;
+    }
+
+    /* FUNKY HEADING with pulse/scale animation on hover */
+    h1 {
+      font-family: 'Freckle Face', cursive;
+      font-size: 3rem;
+      color: #333;
+      margin-bottom: 1rem;
+      animation: pulseColor 3s ease-in-out infinite alternate;
+      transition: transform 0.2s ease;
+    }
+    h1:hover {
+      transform: scale(1.05) rotate(-1deg);
+    }
+
+    /* Pulse color animation for heading */
+    @keyframes pulseColor {
+      0%   { color: #ff55aa; }
+      100% { color: #ff0066; }
+    }
+
+    /* ABOUT PARAGRAPH */
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #007BFF;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    /* MEDIA QUERIES */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .back-link {
+        font-size: 0.95rem;
+      }
+      .rotating-shape {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ROTATING SHAPES -->
+  <div class="rotating-shape rotating-shape1"></div>
+  <div class="rotating-shape rotating-shape2"></div>
+
+  <div class="container">
+    <h1>About Me</h1>
+    <p>
+      I’m Taher, an AI artist who jumped into generative art as soon as it took shape. 
+      Over time, I’ve explored every AI art tool I could get my hands on, becoming an early adopter 
+      who thrives on pushing boundaries. Now, I team up with top AI companies to discover fresh 
+      ways of blending AI with creative expression. My goal is simple: to craft art that surprises, 
+      inspires, and shows how computational intelligence can unlock whole new realms for imagination.
+    </p>
+
+    <!-- Link back to homepage -->
+    <a href="index.html" class="back-link">← Back to Homepage</a>
+  </div>
+</body>
+</html>

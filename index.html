@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Taher's Portfolio</title>
+  <!-- Favicon -->
+  <link rel="icon" href="cube-favicon.jpg" type="image/jpeg" />
+
+  <!-- Funky Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap"
+    rel="stylesheet"
+  >
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* BODY - flex container for alignment */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* starts at top */
+      min-height: 100vh;
+      font-family: 'Gloria Hallelujah', cursive;
+      background: linear-gradient(135deg, #fdf0e6 0%, #ffd1dc 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* CORNER SHAPES (Picasso style) */
+    .shape {
+      position: absolute;
+      z-index: 0;
+      animation: floatBase 5s ease-in-out infinite alternate;
+    }
+    .shape1 {
+      width: 40vw; 
+      height: 40vw;
+      background: #FAFF00;
+      top: 0; 
+      left: 0;
+      clip-path: polygon(0% 0%, 100% 0%, 80% 40%, 40% 100%, 0% 90%);
+      animation-name: wiggle1;
+    }
+    .shape2 {
+      width: 40vw; 
+      height: 40vw;
+      background: #00FFD0;
+      top: 0; 
+      right: 0;
+      clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 40% 100%, 0% 60%);
+      animation-name: wiggle2;
+    }
+    .shape3 {
+      width: 40vw; 
+      height: 40vw;
+      background: #F88946; /* bright orange */
+      bottom: 0; 
+      left: 0;
+      clip-path: polygon(0% 40%, 40% 0%, 100% 0%, 100% 100%, 0% 100%);
+      animation-name: wiggle3;
+    }
+    .shape4 {
+      width: 40vw; 
+      height: 40vw;
+      background: #3BFF00;
+      bottom: 0; 
+      right: 0;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%);
+      animation-name: wiggle4;
+    }
+
+    /* SHAPE ANIMATIONS */
+    @keyframes wiggle1 {
+      to { transform: translate(5vw, 3vh) rotate(20deg); }
+    }
+    @keyframes wiggle2 {
+      to { transform: translate(-5vw, 5vh) rotate(-15deg); }
+    }
+    @keyframes wiggle3 {
+      to { transform: translate(3vw, -4vh) rotate(15deg); }
+    }
+    @keyframes wiggle4 {
+      to { transform: translate(-3vw, -3vh) rotate(20deg); }
+    }
+
+    /* Subtle float for shapes */
+    @keyframes floatBase {
+      from { transform: translateY(0); }
+      to   { transform: translateY(3vh); }
+    }
+
+    /* TD MONOGRAM pinned top center */
+    .funky-logo {
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%) rotate(-5deg);
+      width: 80px;
+      height: 80px;
+      z-index: 10;
+    }
+
+    /* MENU container (margin-top to appear below pinned TD) */
+    .menu-container {
+      z-index: 10;
+      margin-top: 7rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    /* Menu items: Home, About Me, Contact Me, My AI Art Gallery */
+    .menu-item {
+      font-size: 2.2rem;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .menu-item:hover {
+      color: #FF00D4;
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    /* FOOTER pinned near bottom */
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      width: 100%;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #000;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    /* MEDIA QUERY for smaller screens */
+    @media (max-width: 600px) {
+      .funky-logo {
+        width: 60px; 
+        height: 60px;
+      }
+      .menu-item {
+        font-size: 1.8rem;
+      }
+      .shape1, .shape2, .shape3, .shape4 {
+        width: 35vw; 
+        height: 35vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- CORNER SHAPES -->
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <div class="shape shape4"></div>
+
+  <!-- TD MONOGRAM pinned at top center -->
+  <div class="funky-logo">
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Purple shape -->
+      <path
+        d="M10,10 Q50,0 90,10 L90,90 Q50,100 10,90 Z"
+        fill="#7D42EE"
+      />
+      <!-- 'T' in bright green -->
+      <text
+        x="25"
+        y="55"
+        fill="#3BFF00"
+        font-size="42"
+        font-weight="bold"
+        transform="rotate(-15 25,55)"
+        font-family="Arial, sans-serif"
+      >
+        T
+      </text>
+      <!-- 'D' in hot pink -->
+      <text
+        x="45"
+        y="65"
+        fill="#FF00D4"
+        font-size="42"
+        font-weight="bold"
+        transform="rotate(15 45,65)"
+        font-family="Arial, sans-serif"
+      >
+        D
+      </text>
+    </svg>
+  </div>
+
+  <!-- MENU container -->
+  <div class="menu-container">
+    <a href="#" class="menu-item">Home</a>
+    <a href="about.html" class="menu-item">About Me</a>
+    <a href="contact.html" class="menu-item">Contact Me</a>
+    <a href="My AI Art Gallery.html" class="menu-item">My AI Art Gallery</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © Taher 2025. All rights reserved.
+  </footer>
+</body>
+</html>
