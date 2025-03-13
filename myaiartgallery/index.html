@@ -2,158 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My AI Art Gallery – Coming Soon</title>
-  <link rel="icon" href="/cube-favicon.jpeg" type="image/jpeg" />
-
-  <!-- Funky + Clean fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Open+Sans:wght@400;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My AI Art Gallery</title>
+  <link rel="icon" href="/cube-favicon.jpeg" type="image/jpeg">
   <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* BODY – bright gradient background + center content */
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(130deg, #ffe5f7 0%, #faffd6 100%);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden; 
-      position: relative;
-    }
-
-    /* FUNKY SHAPES – random polygons floating around */
-    .shape {
-      position: absolute;
-      z-index: 0;
-      opacity: 0.8;
-      animation: float 5s ease-in-out infinite alternate;
-    }
-    .shape1 {
-      width: 250px; height: 250px;
-      background: #FF6B00;
-      top: -40px; left: -50px;
-      clip-path: polygon(0% 0%, 100% 0%, 70% 45%, 100% 100%, 0% 100%);
-      animation-name: wiggle1;
-    }
-    .shape2 {
-      width: 220px; height: 220px;
-      background: #89fcd6;
-      bottom: -60px; right: -30px;
-      clip-path: polygon(25% 0%, 100% 0%, 80% 80%, 0% 100%, 0% 50%);
-      animation-name: wiggle2;
-    }
-
-    /* Keyframe animations for each shape’s drifting motion */
-    @keyframes wiggle1 {
-      to { transform: translate(60px, 60px) rotate(20deg); }
-    }
-    @keyframes wiggle2 {
-      to { transform: translate(-40px, 40px) rotate(-15deg); }
-    }
-
-    /* Base float for shapes */
-    @keyframes float {
-      from { transform: translateY(0); }
-      to   { transform: translateY(20px); }
-    }
-
-    /* MAIN CONTAINER for the "Coming Soon" message */
-    .container {
-      position: relative;
-      z-index: 1; /* above shapes */
-      max-width: 600px;
-      width: 90%;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(5px);
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      padding: 3rem;
-      animation: dropIn 1s ease forwards;
-      opacity: 0;
-    }
-
-    /* Subtle drop-in animation for the container */
-    @keyframes dropIn {
-      0%   { transform: translateY(-40px); opacity: 0; }
-      100% { transform: translateY(0);     opacity: 1; }
-    }
-
-    /* FUNKY HEADING */
-    h1 {
-      font-family: 'Freckle Face', cursive;
-      font-size: 3rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-
-    /* "Coming Soon" text */
-    p {
-      font-size: 1.3rem;
-      color: #555;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    /* LINK back to homepage */
-    .back-link {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #007BFF;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .back-link:hover {
-      color: #0056b3;
-      text-decoration: underline;
-    }
-
-    /* MEDIA QUERY for smaller screens */
-    @media (max-width: 600px) {
-      .shape1, .shape2 {
-        width: 160px;
-        height: 160px;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-      .container {
-        padding: 2rem;
-      }
-    }
+    /* Basic styling for your gallery */
+    body { font-family: sans-serif; background: #fdf0e6; margin: 0; padding: 2rem; text-align: center; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; }
+    .gallery-item { background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); overflow: hidden; }
+    .gallery-item img, .gallery-item video { width: 100%; height: auto; }
+    .status { margin-top: 1rem; color: #666; }
   </style>
 </head>
 <body>
-  <!-- Floating shapes for funky vibe -->
-  <div class="shape shape1"></div>
-  <div class="shape shape2"></div>
+  <h1>My AI Art Gallery</h1>
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <div id="statusMsg" class="status">Loading AI Art...</div>
 
-  <div class="container">
-    <h1>My AI Art Gallery</h1>
-    <p>
-      Coming Soon! We’re busy curating some wild, tech-infused artworks. <br>
-      Check back later to see our AI wonders unleashed!
-    </p>
-    <a href="../">← Back to Homepage</a>
-  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://wsymagxhyzqeilrtjvmo.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzeW1hZ3hoeXpxZWlscnRqdm1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTI2OTEsImV4cCI6MjA1NzAyODY5MX0.HBDO-7LKoUxnPUd58XGqzp8O63YrDKxJ92zUD2ABb_o';
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const bucketName = 'myaiartgallery';
+    const galleryGrid = document.getElementById('galleryGrid');
+    const statusMsg = document.getElementById('statusMsg');
+
+    async function loadGallery() {
+      try {
+        // 1) List items in the bucket
+        const { data, error } = await supabase
+          .storage
+          .from(bucketName)
+          .list('', { limit: 100 });
+        if (error) throw error;
+        if (!data || data.length === 0) {
+          statusMsg.textContent = 'No AI art found!';
+          return;
+        }
+
+        let itemsHTML = '';
+        for (const fileObj of data) {
+          // 2) For each file, get a public URL
+          const { data: publicURLData } = supabase
+            .storage
+            .from(bucketName)
+            .getPublicUrl(fileObj.name);
+
+          const fileURL = publicURLData.publicUrl;
+          // 3) Check if it's video or image by extension
+          const lowerName = fileObj.name.toLowerCase();
+          if (lowerName.endsWith('.mp4') || lowerName.endsWith('.webm') || lowerName.endsWith('.mov')) {
+            itemsHTML += `
+              <div class="gallery-item">
+                <video src="${fileURL}" controls></video>
+              </div>
+            `;
+          } else {
+            // default to <img>
+            itemsHTML += `
+              <div class="gallery-item">
+                <img src="${fileURL}" alt="${fileObj.name}">
+              </div>
+            `;
+          }
+        }
+
+        galleryGrid.innerHTML = itemsHTML;
+        statusMsg.textContent = '';
+      } catch (err) {
+        console.error(err);
+        statusMsg.textContent = 'Error loading gallery.';
+      }
+    }
+
+    loadGallery();
+  </script>
 </body>
 </html>
