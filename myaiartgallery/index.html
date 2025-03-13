@@ -6,8 +6,8 @@
   <!-- Favicon (optional) -->
   <link rel="icon" href="/cube-favicon.jpeg" type="image/jpeg" />
 
-  <!-- Basic styling -->
   <style>
+    /* Basic layout / styling */
     body {
       font-family: sans-serif;
       background: linear-gradient(135deg, #fdf0e6 0%, #ffd1dc 100%);
@@ -19,7 +19,7 @@
       font-size: 2.2rem;
       margin-bottom: 1rem;
     }
-    /* A link back to homepage if you want */
+    /* "Back to Homepage" link */
     .back-link {
       display: inline-block;
       margin-bottom: 2rem;
@@ -33,7 +33,7 @@
       text-decoration: underline;
     }
 
-    /* Grid for gallery items */
+    /* Gallery grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -61,38 +61,40 @@
   </style>
 </head>
 <body>
-  <h1>My AI Art Gallery</h1>
 
-  <!-- Optional "Back to Homepage" link (assuming your homepage is at root) -->
+  <h1>My AI Art Gallery</h1>
+  <!-- Link back to homepage -->
   <a href="/" class="back-link">← Back to Homepage</a>
 
-  <!-- Grid container for the videos/images -->
-  <div class="gallery-grid" id="galleryGrid"></div>
-  <!-- Status message (loading, error, etc.) -->
+  <!-- Gallery container + status message -->
+  <div id="galleryGrid" class="gallery-grid"></div>
   <div id="statusMsg" class="status">Loading AI Art...</div>
 
-  <!-- Supabase JS library -->
+  <!-- 1) Load the Supabase JS library FIRST -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <!-- 2) Then define your code that uses 'supabase' -->
   <script>
-    // Replace these with YOUR real Supabase info
+    // Replace with your real Supabase details:
     const SUPABASE_URL = 'https://wsymagxhyzqeilrtjvmo.supabase.co';         // e.g. "https://abcdefgh.supabase.co"
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzeW1hZ3hoeXpxZWlscnRqdm1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTI2OTEsImV4cCI6MjA1NzAyODY5MX0.HBDO-7LKoUxnPUd58XGqzp8O63YrDKxJ92zUD2ABb_o';        // e.g. "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpX..."
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzeW1hZ3hoeXpxZWlscnRqdm1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTI2OTEsImV4cCI6MjA1NzAyODY5MX0.HBDO-7LKoUxnPUd58XGqzp8O63YrDKxJ92zUD2ABb_o'; // e.g. "eyJhbGciOiJIUzI1NiIsInR5cCI..."
+
+    // Create the supabase client AFTER loading the library
     const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // Bucket name (you said "videos")
+    // If your bucket is named "videos," use that:
     const bucketName = 'videos';
 
-    // We'll populate these elements
     const galleryGrid = document.getElementById('galleryGrid');
     const statusMsg = document.getElementById('statusMsg');
 
     async function loadGallery() {
       try {
-        // List all objects in the "videos" bucket root
+        // List items in the "videos" bucket root
         const { data, error } = await supabase
           .storage
           .from(bucketName)
-          .list('', { limit: 100 }); // '' means listing the root path
+          .list('', { limit: 100 });
 
         if (error) throw error;
         if (!data || data.length === 0) {
@@ -101,9 +103,8 @@
         }
 
         let itemsHTML = '';
-
         for (const fileObj of data) {
-          // Generate a public URL for each file
+          // Get a public URL for each file
           const { data: publicURLData } = supabase
             .storage
             .from(bucketName)
@@ -112,7 +113,7 @@
           const fileURL = publicURLData.publicUrl;
           const lowerName = fileObj.name.toLowerCase();
 
-          // If it's .mp4, .webm, or .mov, show as <video>, else <img>
+          // If extension is .mp4/.webm/.mov => <video>, else fallback to <img>
           if (
             lowerName.endsWith('.mp4') ||
             lowerName.endsWith('.webm') ||
@@ -124,7 +125,7 @@
               </div>
             `;
           } else {
-            // fallback to img for other extensions
+            // treat as image
             itemsHTML += `
               <div class="gallery-item">
                 <img src="${fileURL}" alt="${fileObj.name}" />
@@ -141,9 +142,8 @@
       }
     }
 
-    // Load the gallery on page load
+    // Call the function after the script loads
     loadGallery();
   </script>
 </body>
 </html>
-
