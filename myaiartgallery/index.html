@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>My AI Art Gallery</title>
-  <!-- Favicon (optional) -->
   <link rel="icon" href="/cube-favicon.jpeg" type="image/jpeg" />
-
   <style>
-    /* Basic layout / styling */
     body {
       font-family: sans-serif;
       background: linear-gradient(135deg, #fdf0e6 0%, #ffd1dc 100%);
@@ -19,7 +16,6 @@
       font-size: 2.2rem;
       margin-bottom: 1rem;
     }
-    /* "Back to Homepage" link */
     .back-link {
       display: inline-block;
       margin-bottom: 2rem;
@@ -32,8 +28,6 @@
       color: #0056b3;
       text-decoration: underline;
     }
-
-    /* Gallery grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -53,7 +47,6 @@
       height: auto;
       display: block;
     }
-
     .status {
       margin-top: 1rem;
       color: #555;
@@ -61,118 +54,18 @@
   </style>
 </head>
 <body>
-
   <h1>My AI Art Gallery</h1>
-  <!-- Link back to homepage -->
   <a href="/" class="back-link">← Back to Homepage</a>
-
-  <!-- Gallery container + status message -->
-  <div id="galleryGrid" class="gallery-grid"></div>
-  <div id="statusMsg" class="status">Loading AI Art...</div>
-
-  <!-- 1) Load the Supabase JS library FIRST -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-
-  <!-- 2)  Then define your code that uses 'supabase' -->
-  <script>
-    // Wait for the DOM to be fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get references to DOM elements
-      const galleryGrid = document.getElementById('galleryGrid');
-      const statusMsg = document.getElementById('statusMsg');
-      
-      // Replace with your real Supabase details:
-      const SUPABASE_URL = 'https://wsymagxhyzqeilrtjvmo.supabase.co';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzeW1hZ3hoeXpxZWlscnRqdm1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTI2OTEsImV4cCI6MjA1NzAyODY5MX0.HBDO-7LKoUxnPUd58XGqzp8O63YrDKxJ92zUD2ABb_o';
-
-      // Make sure the global supabase object exists
-      if (typeof window.supabase === 'undefined')  {
-        statusMsg.textContent = 'Error: Supabase library not loaded properly.';
-        console.error('Supabase library not loaded properly');
-        return;
-      }
-
-      // Create the supabase client
-      try {
-        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        
-        // If your bucket is named "videos," use that:
-        const bucketName = 'videos';
-
-        // Define the gallery loading function
-        async function loadGallery() {
-          try {
-            console.log('Starting to load gallery...');
-            
-            // List items in the "videos" bucket root
-            const { data, error } = await supabaseClient
-              .storage
-              .from(bucketName)
-              .list('', { limit: 100 });
-
-            if (error) {
-              console.error('Error listing files:', error);
-              throw error;
-            }
-            
-            console.log('Files retrieved:', data);
-            
-            if (!data || data.length === 0) {
-              statusMsg.textContent = 'No AI art found in the "videos" bucket.';
-              return;
-            }
-
-            let itemsHTML = '';
-            for (const fileObj of data) {
-              // Get a public URL for each file
-              const { data: publicURLData } = await supabaseClient
-                .storage
-                .from(bucketName)
-                .getPublicUrl(fileObj.name);
-
-              const fileURL = publicURLData.publicUrl;
-              const lowerName = fileObj.name.toLowerCase();
-              
-              console.log('Processing file:', fileObj.name, 'URL:', fileURL);
-
-              // If extension is .mp4/.webm/.mov => <video>, else fallback to <img>
-              if (
-                lowerName.endsWith('.mp4') ||
-                lowerName.endsWith('.webm') ||
-                lowerName.endsWith('.mov')
-              ) {
-                itemsHTML += `
-                  <div class="gallery-item">
-                    <video src="${fileURL}" controls></video>
-                  </div>
-                `;
-              } else {
-                // treat as image
-                itemsHTML += `
-                  <div class="gallery-item">
-                    <img src="${fileURL}" alt="${fileObj.name}" />
-                  </div>
-                `;
-              }
-            }
-
-            galleryGrid.innerHTML = itemsHTML;
-            statusMsg.textContent = '';
-            console.log('Gallery loaded successfully');
-          } catch (err) {
-            console.error('Error in loadGallery function:', err);
-            statusMsg.textContent = 'Error loading gallery: ' + (err.message || err);
-          }
-        }
-
-        // Call the function after everything is set up
-        loadGallery();
-        
-      } catch (initErr) {
-        console.error('Error initializing Supabase client:', initErr);
-        statusMsg.textContent = 'Error initializing gallery.';
-      }
-    });
-  </script>
+  
+  <div class="gallery-grid">
+    <!-- REPLACE THE VIDEO FILENAMES BELOW WITH YOUR ACTUAL VIDEO FILENAMES -->
+    <div class="gallery-item">
+      <video src="https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//festival-of-lights_daaSCvD2.mp4" controls></video>
+    </div>
+  
+    <!-- ADD MORE VIDEO ITEMS AS NEEDED -->
+  </div>
+  
+  <div class="status">My AI Art Collection</div>
 </body>
 </html>
