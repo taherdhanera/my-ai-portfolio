@@ -132,11 +132,12 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
     
+    /* Changed to vertical layout */
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
-      max-width: 1200px;
+      max-width: 600px;
       margin: 2rem auto;
     }
     
@@ -146,6 +147,7 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 2rem;
     }
     
     .gallery-item:hover {
@@ -186,14 +188,16 @@
   
   <div class="gallery-grid">
     <div class="gallery-item">
-      <video src="https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Festival%20of%20Lights.mp4" controls></video>
+      <video src="https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Festival%20of%20Lights.mp4" controls></video>
       <div class="video-title">Festival of Lights</div>
-      <video src="https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Whisper%20of%20the%20Echoes.mp4" controls></video>
+    </div>
+    
+    <div class="gallery-item">
+      <video src="https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Whisper%20of%20the%20Echoes.mp4" controls></video>
       <div class="video-title">Whisper of the Echoes</div>
     </div>
     
     <!-- You can add more videos here as needed -->
-    
   </div>
 </body>
 </html>
