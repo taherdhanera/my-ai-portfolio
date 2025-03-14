@@ -73,77 +73,80 @@
   <!-- 1) Load the Supabase JS library FIRST -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
-  <!-- 2) Then define your code that uses 'supabase' -->
+  <!-- 2)  Then define your code that uses 'supabase' -->
   <script>
     // Replace with your real Supabase details:
-    const SUPABASE_URL = 'https://wsymagxhyzqeilrtjvmo.supabase.co';         // e.g. "https://abcdefgh.supabase.co"
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzeW1hZ3hoeXpxZWlscnRqdm1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTI2OTEsImV4cCI6MjA1NzAyODY5MX0.HBDO-7LKoUxnPUd58XGqzp8O63YrDKxJ92zUD2ABb_o'; // e.g. "eyJhbGciOiJIUzI1NiIsInR5cCI..."
+    const SUPABASE_URL = 'https://wsymagxhyzqeilrtjvmo.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzeW1hZ3hoeXpxZWlscnRqdm1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTI2OTEsImV4cCI6MjA1NzAyODY5MX0.HBDO-7LKoUxnPUd58XGqzp8O63YrDKxJ92zUD2ABb_o';
 
     // Create the supabase client AFTER loading the library
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) ;
 
     // If your bucket is named "videos," use that:
     const bucketName = 'videos';
 
-    const galleryGrid = document.getElementById('galleryGrid');
-    const statusMsg = document.getElementById('statusMsg');
+    // IMPORTANT CHANGE: Wrap everything in a DOMContentLoaded event
+    document.addEventListener('DOMContentLoaded', function() {
+      const galleryGrid = document.getElementById('galleryGrid');
+      const statusMsg = document.getElementById('statusMsg');
 
-    async function loadGallery() {
-      try {
-        // List items in the "videos" bucket root
-        const { data, error } = await supabase
-          .storage
-          .from(bucketName)
-          .list('', { limit: 100 });
-
-        if (error) throw error;
-        if (!data || data.length === 0) {
-          statusMsg.textContent = 'No AI art found in the "videos" bucket.';
-          return;
-        }
-
-        let itemsHTML = '';
-        for (const fileObj of data) {
-          // Get a public URL for each file
-          const { data: publicURLData } = supabase
+      async function loadGallery() {
+        try {
+          // List items in the "videos" bucket root
+          const { data, error } = await supabase
             .storage
             .from(bucketName)
-            .getPublicUrl(fileObj.name);
+            .list('', { limit: 100 });
 
-          const fileURL = publicURLData.publicUrl;
-          const lowerName = fileObj.name.toLowerCase();
-
-          // If extension is .mp4/.webm/.mov => <video>, else fallback to <img>
-          if (
-            lowerName.endsWith('.mp4') ||
-            lowerName.endsWith('.webm') ||
-            lowerName.endsWith('.mov')
-          ) {
-            itemsHTML += `
-              <div class="gallery-item">
-                <video src="${fileURL}" controls></video>
-              </div>
-            `;
-          } else {
-            // treat as image
-            itemsHTML += `
-              <div class="gallery-item">
-                <img src="${fileURL}" alt="${fileObj.name}" />
-              </div>
-            `;
+          if (error) throw error;
+          if (!data || data.length === 0) {
+            statusMsg.textContent = 'No AI art found in the "videos" bucket.';
+            return;
           }
+
+          let itemsHTML = '';
+          for (const fileObj of data) {
+            // Get a public URL for each file
+            const { data: publicURLData } = await supabase
+              .storage
+              .from(bucketName)
+              .getPublicUrl(fileObj.name);
+
+            const fileURL = publicURLData.publicUrl;
+            const lowerName = fileObj.name.toLowerCase();
+
+            // If extension is .mp4/.webm/.mov => <video>, else fallback to <img>
+            if (
+              lowerName.endsWith('.mp4') ||
+              lowerName.endsWith('.webm') ||
+              lowerName.endsWith('.mov')
+            ) {
+              itemsHTML += `
+                <div class="gallery-item">
+                  <video src="${fileURL}" controls></video>
+                </div>
+              `;
+            } else {
+              // treat as image
+              itemsHTML += `
+                <div class="gallery-item">
+                  <img src="${fileURL}" alt="${fileObj.name}" />
+                </div>
+              `;
+            }
+          }
+
+          galleryGrid.innerHTML = itemsHTML;
+          statusMsg.textContent = '';
+        } catch (err) {
+          console.error(err);
+          statusMsg.textContent = 'Error loading gallery.';
         }
-
-        galleryGrid.innerHTML = itemsHTML;
-        statusMsg.textContent = '';
-      } catch (err) {
-        console.error(err);
-        statusMsg.textContent = 'Error loading gallery.';
       }
-    }
 
-    // Call the function after the script loads
-    loadGallery();
+      // Call the function after the DOM is ready
+      loadGallery();
+    });
   </script>
 </body>
 </html>
