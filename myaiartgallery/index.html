@@ -16,6 +16,82 @@
       overflow-x: hidden;
     }
     
+    /* Add Picasso-inspired bubble effects */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      animation: float 8s ease-in-out infinite;
+      z-index: -1;
+    }
+    
+    .bubble:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 182, 193, 0.6), rgba(255, 182, 193, 0.1));
+    }
+    
+    .bubble:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 20%;
+      right: 15%;
+      animation-delay: 1s;
+      background: radial-gradient(circle at 30% 30%, rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.1));
+    }
+    
+    .bubble:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      bottom: 30%;
+      left: 20%;
+      animation-delay: 2s;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 222, 173, 0.6), rgba(255, 222, 173, 0.1));
+    }
+    
+    .bubble:nth-child(4) {
+      width: 100px;
+      height: 100px;
+      bottom: 20%;
+      right: 20%;
+      animation-delay: 3s;
+      background: radial-gradient(circle at 30% 30%, rgba(216, 191, 216, 0.6), rgba(216, 191, 216, 0.1));
+    }
+    
+    .bubble:nth-child(5) {
+      width: 70px;
+      height: 70px;
+      top: 50%;
+      left: 5%;
+      animation-delay: 4s;
+      background: radial-gradient(circle at 30% 30%, rgba(152, 251, 152, 0.6), rgba(152, 251, 152, 0.1));
+    }
+    
+    .bubble:nth-child(6) {
+      width: 90px;
+      height: 90px;
+      top: 40%;
+      right: 5%;
+      animation-delay: 5s;
+      background: radial-gradient(circle at 30% 30%, rgba(135, 206, 235, 0.6), rgba(135, 206, 235, 0.1));
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(10deg);
+      }
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+    
     /* Add some decorative elements */
     body::before {
       content: "";
@@ -25,7 +101,7 @@
       width: 100%;
       height: 100%;
       background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0%, rgba(233, 226, 226, 0.28) 90.1%);
-      z-index: -1;
+      z-index: -2;
     }
     
     h1 {
@@ -82,24 +158,50 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 8px;
+      border-radius: 8px 8px 0 0;
+    }
+    
+    /* Movie title styling */
+    .video-title {
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      background: rgba(255, 255, 255, 0.9);
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .video-description {
+      padding: 0 1rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
+  <!-- Picasso-inspired bubble effects -->
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  
   <h1>My AI Art Gallery</h1>
   <a href="/" class="back-link">← Back to Homepage</a>
   
   <div class="gallery-grid">
     <div class="gallery-item">
       <video src="https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/festival-of-lights_daaSCvD2.mp4" controls></video>
+      <div class="video-title">Festival of Lights</div>
+      <div class="video-description">An AI-generated exploration of light and color</div>
     </div>
     
     <!-- You can add more videos here as needed -->
     
   </div>
-  
-  <!-- Removed the status text as requested -->
 </body>
 </html>
+
 
