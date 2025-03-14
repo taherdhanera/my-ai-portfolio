@@ -75,77 +75,103 @@
 
   <!-- 2)  Then define your code that uses 'supabase' -->
   <script>
-    // Replace with your real Supabase details:
-    const SUPABASE_URL = 'https://wsymagxhyzqeilrtjvmo.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzeW1hZ3hoeXpxZWlscnRqdm1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTI2OTEsImV4cCI6MjA1NzAyODY5MX0.HBDO-7LKoUxnPUd58XGqzp8O63YrDKxJ92zUD2ABb_o';
-
-    // Create the supabase client AFTER loading the library
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) ;
-
-    // If your bucket is named "videos," use that:
-    const bucketName = 'videos';
-
-    // IMPORTANT CHANGE: Wrap everything in a DOMContentLoaded event
+    // Wait for the DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
+      // Get references to DOM elements
       const galleryGrid = document.getElementById('galleryGrid');
       const statusMsg = document.getElementById('statusMsg');
+      
+      // Replace with your real Supabase details:
+      const SUPABASE_URL = 'https://wsymagxhyzqeilrtjvmo.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzeW1hZ3hoeXpxZWlscnRqdm1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTI2OTEsImV4cCI6MjA1NzAyODY5MX0.HBDO-7LKoUxnPUd58XGqzp8O63YrDKxJ92zUD2ABb_o';
 
-      async function loadGallery() {
-        try {
-          // List items in the "videos" bucket root
-          const { data, error } = await supabase
-            .storage
-            .from(bucketName)
-            .list('', { limit: 100 });
-
-          if (error) throw error;
-          if (!data || data.length === 0) {
-            statusMsg.textContent = 'No AI art found in the "videos" bucket.';
-            return;
-          }
-
-          let itemsHTML = '';
-          for (const fileObj of data) {
-            // Get a public URL for each file
-            const { data: publicURLData } = await supabase
-              .storage
-              .from(bucketName)
-              .getPublicUrl(fileObj.name);
-
-            const fileURL = publicURLData.publicUrl;
-            const lowerName = fileObj.name.toLowerCase();
-
-            // If extension is .mp4/.webm/.mov => <video>, else fallback to <img>
-            if (
-              lowerName.endsWith('.mp4') ||
-              lowerName.endsWith('.webm') ||
-              lowerName.endsWith('.mov')
-            ) {
-              itemsHTML += `
-                <div class="gallery-item">
-                  <video src="${fileURL}" controls></video>
-                </div>
-              `;
-            } else {
-              // treat as image
-              itemsHTML += `
-                <div class="gallery-item">
-                  <img src="${fileURL}" alt="${fileObj.name}" />
-                </div>
-              `;
-            }
-          }
-
-          galleryGrid.innerHTML = itemsHTML;
-          statusMsg.textContent = '';
-        } catch (err) {
-          console.error(err);
-          statusMsg.textContent = 'Error loading gallery.';
-        }
+      // Make sure the global supabase object exists
+      if (typeof window.supabase === 'undefined')  {
+        statusMsg.textContent = 'Error: Supabase library not loaded properly.';
+        console.error('Supabase library not loaded properly');
+        return;
       }
 
-      // Call the function after the DOM is ready
-      loadGallery();
+      // Create the supabase client
+      try {
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        // If your bucket is named "videos," use that:
+        const bucketName = 'videos';
+
+        // Define the gallery loading function
+        async function loadGallery() {
+          try {
+            console.log('Starting to load gallery...');
+            
+            // List items in the "videos" bucket root
+            const { data, error } = await supabaseClient
+              .storage
+              .from(bucketName)
+              .list('', { limit: 100 });
+
+            if (error) {
+              console.error('Error listing files:', error);
+              throw error;
+            }
+            
+            console.log('Files retrieved:', data);
+            
+            if (!data || data.length === 0) {
+              statusMsg.textContent = 'No AI art found in the "videos" bucket.';
+              return;
+            }
+
+            let itemsHTML = '';
+            for (const fileObj of data) {
+              // Get a public URL for each file
+              const { data: publicURLData } = await supabaseClient
+                .storage
+                .from(bucketName)
+                .getPublicUrl(fileObj.name);
+
+              const fileURL = publicURLData.publicUrl;
+              const lowerName = fileObj.name.toLowerCase();
+              
+              console.log('Processing file:', fileObj.name, 'URL:', fileURL);
+
+              // If extension is .mp4/.webm/.mov => <video>, else fallback to <img>
+              if (
+                lowerName.endsWith('.mp4') ||
+                lowerName.endsWith('.webm') ||
+                lowerName.endsWith('.mov')
+              ) {
+                itemsHTML += `
+                  <div class="gallery-item">
+                    <video src="${fileURL}" controls></video>
+                  </div>
+                `;
+              } else {
+                // treat as image
+                itemsHTML += `
+                  <div class="gallery-item">
+                    <img src="${fileURL}" alt="${fileObj.name}" />
+                  </div>
+                `;
+              }
+            }
+
+            galleryGrid.innerHTML = itemsHTML;
+            statusMsg.textContent = '';
+            console.log('Gallery loaded successfully');
+          } catch (err) {
+            console.error('Error in loadGallery function:', err);
+            statusMsg.textContent = 'Error loading gallery: ' + (err.message || err);
+          }
+        }
+
+        // Call the function after everything is set up
+        loadGallery();
+        
+      } catch (initErr) {
+        console.error('Error initializing Supabase client:', initErr);
+        statusMsg.textContent = 'Error initializing gallery.';
+      }
     });
   </script>
 </body>
