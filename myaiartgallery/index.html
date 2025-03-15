@@ -672,7 +672,26 @@
       </div>
       <div class="video-date">2025-03-15</div>
     </div>
+
+  <div class="gallery-item" data-date="2025-03-15">
+  <div class="video-wrapper">
+    <video id="video6" controls preload="metadata" controlsList="nodownload" playsinline></video>
+    <canvas id="canvas6" class="canvas-overlay"></canvas>
+    <div id="buffering6" class="buffering-indicator"></div>
   </div>
+  <div class="quality-indicator" id="quality6">HD</div>
+  <div class="video-controls">
+    <div class="video-title">A Peanut</div>
+    <select class="resolution-selector" onchange="changeResolution('video6', this.value)">
+      <option value="480p">480p</option>
+      <option value="720p">720p</option>
+      <option value="1080p" selected>1080p</option>
+    </select>
+  </div>
+  <div class="video-date">2025-03-15</div>
+</div>
+
+
   
   <script>
     // Video sources for different resolutions - using the same URL for all resolutions for now
@@ -702,6 +721,11 @@
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Dreamer%27s%20Dilemma.mp4',
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Dreamer%27s%20Dilemma.mp4',
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Dreamer%27s%20Dilemma.mp4'
+      },
+      'video6': {
+        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//A%20Peanut.mp4',
+        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//A%20Peanut.mp4',
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//A%20Peanut.mp4'
       }
     };
     
