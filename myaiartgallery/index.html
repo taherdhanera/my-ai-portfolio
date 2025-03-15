@@ -542,7 +542,7 @@
   <!-- Preset buttons -->
   <div class="preset-buttons">
     <button class="preset-button" onclick="applyPreset('default')">Default</button>
-    <button class="preset-button" onclick="applyPreset('sharp')">Sharp</button>
+    <button class="preset-button active" onclick="applyPreset('sharp')">Sharp</button>
     <button class="preset-button" onclick="applyPreset('vivid')">Vivid</button>
     <button class="preset-button" onclick="applyPreset('cinema')">Cinema</button>
     <button class="preset-button" onclick="applyPreset('soft')">Soft</button>
@@ -551,14 +551,14 @@
   <!-- Enhancement controls -->
   <div class="enhancement-controls">
     <span class="enhancement-label">Sharpness:</span>
-    <input type="range" min="0" max="100" value="60" class="enhancement-slider" id="sharpnessSlider" oninput="updateEnhancements()">
-    <span class="enhancement-value" id="sharpnessValue">60%</span>
+    <input type="range" min="0" max="100" value="85" class="enhancement-slider" id="sharpnessSlider" oninput="updateEnhancements()">
+    <span class="enhancement-value" id="sharpnessValue">85%</span>
   </div>
   
   <div class="enhancement-controls">
     <span class="enhancement-label">Contrast:</span>
-    <input type="range" min="0" max="100" value="60" class="enhancement-slider" id="contrastSlider" oninput="updateEnhancements()">
-    <span class="enhancement-value" id="contrastValue">60%</span>
+    <input type="range" min="0" max="100" value="65" class="enhancement-slider" id="contrastSlider" oninput="updateEnhancements()">
+    <span class="enhancement-value" id="contrastValue">65%</span>
   </div>
   
   <div class="enhancement-controls">
@@ -569,14 +569,14 @@
   
   <div class="enhancement-controls">
     <span class="enhancement-label">Saturation:</span>
-    <input type="range" min="0" max="100" value="55" class="enhancement-slider" id="saturationSlider" oninput="updateEnhancements()">
-    <span class="enhancement-value" id="saturationValue">55%</span>
+    <input type="range" min="0" max="100" value="60" class="enhancement-slider" id="saturationSlider" oninput="updateEnhancements()">
+    <span class="enhancement-value" id="saturationValue">60%</span>
   </div>
   
   <div class="enhancement-controls">
     <span class="enhancement-label">Denoise:</span>
-    <input type="range" min="0" max="100" value="30" class="enhancement-slider" id="denoiseSlider" oninput="updateEnhancements()">
-    <span class="enhancement-value" id="denoiseValue">30%</span>
+    <input type="range" min="0" max="100" value="20" class="enhancement-slider" id="denoiseSlider" oninput="updateEnhancements()">
+    <span class="enhancement-value" id="denoiseValue">20%</span>
   </div>
   
   <!-- Loading indicator -->
@@ -619,7 +619,6 @@
       <div class="video-date">2025-03-15</div>
     </div>
 
-
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video5" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -655,11 +654,11 @@
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Whisper%20of%20the%20Echoes.mp4',
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Whisper%20of%20the%20Echoes.mp4'
       },
-      'video3': {
-        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Murthy.mp4',
-        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Murthy.mp4',
-        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Murthy.mp4'
-
+      'video5': {
+        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Murthy.mp4',
+        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Murthy.mp4',
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Murthy.mp4'
+      }
     };
     
     // Quality labels for different resolutions
@@ -711,11 +710,11 @@
     // Enhancement settings
     let enhancementSettings = {
       enabled: true,
-      sharpness: 60,
-      contrast: 60,
+      sharpness: 85,
+      contrast: 65,
       brightness: 55,
-      saturation: 55,
-      denoise: 30
+      saturation: 60,
+      denoise: 20
     };
     
     // Canvas contexts for video processing
@@ -1230,6 +1229,7 @@
       // Initialize each video with the default resolution
       Object.keys(videoSources).forEach(videoId => {
         const video = document.getElementById(videoId);
+        if (!video) return; // Skip if video element doesn't exist
         
         // Set video attributes for better quality
         video.setAttribute('playsinline', '');
@@ -1259,8 +1259,13 @@
       document.getElementById('saturationValue').textContent = enhancementSettings.saturation + '%';
       document.getElementById('denoiseValue').textContent = enhancementSettings.denoise + '%';
       
-      // Set default preset as active
-      document.querySelector('.preset-button').classList.add('active');
+      // Set sharp preset as active
+      document.querySelectorAll('.preset-button').forEach(button => {
+        button.classList.remove('active');
+        if (button.textContent.toLowerCase() === 'sharp') {
+          button.classList.add('active');
+        }
+      });
       
       // Preload video thumbnails
       preloadVideoThumbnails();
