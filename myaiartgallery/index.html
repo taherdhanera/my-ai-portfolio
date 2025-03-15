@@ -654,13 +654,7 @@
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Whisper%20of%20the%20Echoes.mp4',
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Whisper%20of%20the%20Echoes.mp4'
       },
-      'video3': {
-        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Shadows%20of%20Doubt.mp4',
-        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Shadows%20of%20Doubt.mp4',
-        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Shadows%20of%20Doubt.mp4'
-      },
-          
-      'video4': {
+      'video5': {
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Murthy.mp4',
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Murthy.mp4',
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Murthy.mp4'
@@ -733,7 +727,7 @@
     const videoQualityData = {};
     
     // Function to show loading indicator
-    function showLoading() {
+    function showLoading()  {
       document.getElementById('loadingIndicator').style.display = 'block';
     }
     
@@ -1183,6 +1177,7 @@
     function preloadVideoThumbnails() {
       Object.keys(videoSources).forEach(videoId => {
         const video = document.getElementById(videoId);
+        if (!video) return; // Skip if video element doesn't exist
         
         // Set poster attribute if available
         // video.poster = `path/to/thumbnails/${videoId}_thumbnail.jpg`;
