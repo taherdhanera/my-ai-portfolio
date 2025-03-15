@@ -17,7 +17,7 @@
       overflow-x: hidden;
     }
     
-    /* Add Picasso-inspired bubble effects */
+    /* add picasso-inspired bubble effects */
     .bubble {
       position: absolute;
       border-radius: 50%;
@@ -93,7 +93,7 @@
       }
     }
     
-    /* Add some decorative elements */
+    /* add some decorative elements */
     body::before {
       content: "";
       position: absolute;
@@ -133,7 +133,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
     
-    /* Filter container styling */
+    /* filter container styling */
     .filter-container {
       display: flex;
       justify-content: space-between;
@@ -143,7 +143,7 @@
       padding: 0 1rem;
     }
     
-    /* Filter dropdown styling */
+    /* filter dropdown styling */
     .filter-dropdown {
       padding: 0.5rem 1rem;
       border-radius: 6px;
@@ -168,7 +168,7 @@
       box-shadow: 0 0 0 2px rgba(74, 107, 223, 0.2);
     }
     
-    /* Changed to vertical layout */
+    /* changed to vertical layout */
     .gallery-grid {
       display: flex;
       flex-direction: column;
@@ -198,16 +198,16 @@
       height: auto;
       display: block;
       border-radius: 8px 8px 0 0;
-      object-fit: contain; /* Ensures video maintains aspect ratio */
-      max-height: 500px; /* Limit maximum height */
-      background-color: #000; /* Dark background for videos */
-      image-rendering: -webkit-optimize-contrast; /* Improves sharpness in webkit browsers */
-      image-rendering: crisp-edges; /* Improves sharpness in Firefox */
-      will-change: transform; /* Hardware acceleration hint */
-      transform: translateZ(0); /* Force hardware acceleration */
+      object-fit: contain;
+      max-height: 500px;
+      background-color: #000;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      will-change: transform;
+      transform: translateZ(0);
     }
     
-    /* Video controls container */
+    /* video controls container */
     .video-controls {
       display: flex;
       justify-content: space-between;
@@ -217,7 +217,7 @@
       border-top: 1px solid rgba(0,0,0,0.05);
     }
     
-    /* Resolution selector styling */
+    /* resolution selector styling */
     .resolution-selector {
       padding: 0.3rem 0.7rem;
       border-radius: 4px;
@@ -239,12 +239,12 @@
       border-color: #4a6bdf;
     }
     
-    /* Video date styling for sorting */
+    /* video date styling for sorting */
     .video-date {
-      display: none; /* Hidden from view but used for sorting */
+      display: none;
     }
     
-    /* Loading indicator */
+    /* loading indicator */
     .loading-indicator {
       display: none;
       position: absolute;
@@ -258,7 +258,7 @@
       z-index: 10;
     }
     
-    /* Video quality indicator */
+    /* video quality indicator */
     .quality-indicator {
       position: absolute;
       top: 10px;
@@ -271,7 +271,7 @@
       z-index: 5;
     }
     
-    /* Enhancement controls */
+    /* enhancement controls */
     .enhancement-controls {
       display: flex;
       justify-content: center;
@@ -340,7 +340,7 @@
       min-width: 40px;
     }
     
-    /* Video wrapper for canvas overlay */
+    /* video wrapper for canvas overlay */
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -359,7 +359,7 @@
       border-radius: 8px 8px 0 0;
     }
     
-    /* Enhancement mode toggle */
+    /* enhancement mode toggle */
     .enhancement-toggle {
       display: flex;
       align-items: center;
@@ -423,7 +423,7 @@
       color: #333;
     }
     
-    /* Preset buttons */
+    /* preset buttons */
     .preset-buttons {
       display: flex;
       justify-content: center;
@@ -455,7 +455,7 @@
       color: white;
     }
     
-    /* Video buffering indicator */
+    /* video buffering indicator */
     .buffering-indicator {
       position: absolute;
       top: 50%;
@@ -475,7 +475,7 @@
       to { transform: translate(-50%, -50%) rotate(360deg); }
     }
     
-    /* Responsive adjustments */
+    /* responsive adjustments */
     @media (max-width: 768px) {
       .enhancement-controls {
         flex-direction: column;
@@ -500,7 +500,7 @@
   </style>
 </head>
 <body>
-  <!-- Picasso-inspired bubble effects -->
+  <!-- picasso-inspired bubble effects -->
   <div class="bubble"></div>
   <div class="bubble"></div>
   <div class="bubble"></div>
@@ -511,7 +511,7 @@
   <h1>My AI Art Gallery</h1>
   <a href="/" class="back-link">← Back to Homepage</a>
   
-  <!-- Filter container with dropdowns -->
+  <!-- filter container with dropdowns -->
   <div class="filter-container">
     <div>
       <label for="defaultResolution">Default Resolution: </label>
@@ -529,7 +529,7 @@
     </div>
   </div>
   
-  <!-- Enhancement mode toggle -->
+  <!-- enhancement mode toggle -->
   <div class="enhancement-toggle">
     <span class="toggle-label">Standard Mode</span>
     <label class="toggle-switch">
@@ -539,7 +539,7 @@
     <span class="toggle-label">Enhanced Mode</span>
   </div>
   
-  <!-- Preset buttons -->
+  <!-- preset buttons -->
   <div class="preset-buttons">
     <button class="preset-button" onclick="applyPreset('default')">Default</button>
     <button class="preset-button active" onclick="applyPreset('sharp')">Sharp</button>
@@ -548,7 +548,7 @@
     <button class="preset-button" onclick="applyPreset('soft')">Soft</button>
   </div>
   
-  <!-- Enhancement controls -->
+  <!-- enhancement controls -->
   <div class="enhancement-controls">
     <span class="enhancement-label">Sharpness:</span>
     <input type="range" min="0" max="100" value="85" class="enhancement-slider" id="sharpnessSlider" oninput="updateEnhancements()">
@@ -579,7 +579,7 @@
     <span class="enhancement-value" id="denoiseValue">20%</span>
   </div>
   
-  <!-- Loading indicator -->
+  <!-- loading indicator -->
   <div id="loadingIndicator" class="loading-indicator">Loading video...</div>
   
   <div id="galleryGrid" class="gallery-grid">
@@ -708,11 +708,29 @@
       </div>
       <div class="video-date">2025-03-15</div>
     </div>
+
+    <!-- new video added -->
+    <div class="gallery-item" data-date="2025-03-15">
+      <div class="video-wrapper">
+        <video id="video8" controls preload="metadata" controlsList="nodownload" playsinline></video>
+        <canvas id="canvas8" class="canvas-overlay"></canvas>
+        <div id="buffering8" class="buffering-indicator"></div>
+      </div>
+      <div class="quality-indicator" id="quality8">HD</div>
+      <div class="video-controls">
+        <div class="video-title">Home - A Dance of Chaos and Connection</div>
+        <select class="resolution-selector" onchange="changeResolution('video8', this.value)">
+          <option value="480p">480p</option>
+          <option value="720p">720p</option>
+          <option value="1080p" selected>1080p</option>
+        </select>
+      </div>
+      <div class="video-date">2025-03-15</div>
+    </div>
   </div>
   
   <script>
-    // Video sources for different resolutions - using the same URL for all resolutions for now
-    // In a production environment, you would have different video files for each resolution
+    // video sources for different resolutions - using the same url for all resolutions for now
     const videoSources = {
       'video1': {
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Festival%20of%20Lights.mp4',
@@ -748,17 +766,22 @@
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Valentine%27s%20Day.mp4',
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Valentine%27s%20Day.mp4',
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Valentine%27s%20Day.mp4'
+      },
+      'video8': {
+        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Home%20-%20A%20Dance%20of%20Chaos%20and%20Connection.mp4',
+        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Home%20-%20A%20Dance%20of%20Chaos%20and%20Connection.mp4',
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Home%20-%20A%20Dance%20of%20Chaos%20and%20Connection.mp4'
       }
     };
     
-    // Quality labels for different resolutions
+    // quality labels for different resolutions
     const qualityLabels = {
       '480p': 'SD',
       '720p': 'HD',
       '1080p': 'FHD'
     };
     
-    // Enhancement presets
+    // enhancement presets
     const presets = {
       'default': {
         sharpness: 60,
@@ -797,7 +820,7 @@
       }
     };
     
-    // Enhancement settings
+    // enhancement settings
     let enhancementSettings = {
       enabled: true,
       sharpness: 85,
@@ -807,26 +830,26 @@
       denoise: 20
     };
     
-    // Canvas contexts for video processing
+    // canvas contexts for video processing
     const canvasContexts = {};
     
-    // Animation frame IDs for each video
+    // animation frame ids for each video
     const animationFrames = {};
     
-    // Video quality data
+    // video quality data
     const videoQualityData = {};
     
-    // Function to show loading indicator
+    // function to show loading indicator
     function showLoading()  {
       document.getElementById('loadingIndicator').style.display = 'block';
     }
     
-    // Function to hide loading indicator
+    // function to hide loading indicator
     function hideLoading() {
       document.getElementById('loadingIndicator').style.display = 'none';
     }
     
-    // Function to show buffering indicator for a specific video
+    // function to show buffering indicator for a specific video
     function showBuffering(videoId) {
       const bufferingId = 'buffering' + videoId.replace('video', '');
       const bufferingElement = document.getElementById(bufferingId);
@@ -835,7 +858,7 @@
       }
     }
     
-    // Function to hide buffering indicator for a specific video
+    // function to hide buffering indicator for a specific video
     function hideBuffering(videoId) {
       const bufferingId = 'buffering' + videoId.replace('video', '');
       const bufferingElement = document.getElementById(bufferingId);
@@ -844,7 +867,7 @@
       }
     }
     
-    // Function to update quality indicator
+    // function to update quality indicator
     function updateQualityIndicator(videoId, resolution) {
       const qualityElement = document.getElementById('quality' + videoId.replace('video', ''));
       if (qualityElement) {
@@ -852,9 +875,9 @@
       }
     }
     
-    // Function to apply preset
+    // function to apply preset
     function applyPreset(presetName) {
-      // Update active button state
+      // update active button state
       document.querySelectorAll('.preset-button').forEach(button => {
         button.classList.remove('active');
         if (button.textContent.toLowerCase() === presetName) {
@@ -862,77 +885,77 @@
         }
       });
       
-      // Apply preset settings
+      // apply preset settings
       if (presets[presetName]) {
         const preset = presets[presetName];
         
-        // Update enhancement settings
+        // update enhancement settings
         enhancementSettings.sharpness = preset.sharpness;
         enhancementSettings.contrast = preset.contrast;
         enhancementSettings.brightness = preset.brightness;
         enhancementSettings.saturation = preset.saturation;
         enhancementSettings.denoise = preset.denoise;
         
-        // Update sliders
+        // update sliders
         document.getElementById('sharpnessSlider').value = preset.sharpness;
         document.getElementById('contrastSlider').value = preset.contrast;
         document.getElementById('brightnessSlider').value = preset.brightness;
         document.getElementById('saturationSlider').value = preset.saturation;
         document.getElementById('denoiseSlider').value = preset.denoise;
         
-        // Update display values
+        // update display values
         document.getElementById('sharpnessValue').textContent = preset.sharpness + '%';
         document.getElementById('contrastValue').textContent = preset.contrast + '%';
         document.getElementById('brightnessValue').textContent = preset.brightness + '%';
         document.getElementById('saturationValue').textContent = preset.saturation + '%';
         document.getElementById('denoiseValue').textContent = preset.denoise + '%';
         
-        // Apply enhancements
+        // apply enhancements
         updateEnhancements();
       }
     }
     
-    // Function to toggle enhancement mode
+    // function to toggle enhancement mode
     function toggleEnhancementMode() {
       enhancementSettings.enabled = document.getElementById('enhancementToggle').checked;
       updateEnhancements();
     }
     
-    // Function to update enhancement settings
+    // function to update enhancement settings
     function updateEnhancements() {
-      // Update enhancement values
+      // update enhancement values
       enhancementSettings.sharpness = parseInt(document.getElementById('sharpnessSlider').value);
       enhancementSettings.contrast = parseInt(document.getElementById('contrastSlider').value);
       enhancementSettings.brightness = parseInt(document.getElementById('brightnessSlider').value);
       enhancementSettings.saturation = parseInt(document.getElementById('saturationSlider').value);
       enhancementSettings.denoise = parseInt(document.getElementById('denoiseSlider').value);
       
-      // Update display values
+      // update display values
       document.getElementById('sharpnessValue').textContent = enhancementSettings.sharpness + '%';
       document.getElementById('contrastValue').textContent = enhancementSettings.contrast + '%';
       document.getElementById('brightnessValue').textContent = enhancementSettings.brightness + '%';
       document.getElementById('saturationValue').textContent = enhancementSettings.saturation + '%';
       document.getElementById('denoiseValue').textContent = enhancementSettings.denoise + '%';
       
-      // Apply enhancements to all videos
+      // apply enhancements to all videos
       Object.keys(videoSources).forEach(videoId => {
         applyVideoEnhancements(videoId);
       });
     }
     
-    // Function to apply video enhancements
+    // function to apply video enhancements
     function applyVideoEnhancements(videoId) {
       const video = document.getElementById(videoId);
       const canvas = document.getElementById('canvas' + videoId.replace('video', ''));
       
       if (!video || !canvas) return;
       
-      // If enhancement is disabled, hide canvas and reset video style
+      // if enhancement is disabled, hide canvas and reset video style
       if (!enhancementSettings.enabled) {
         canvas.style.display = 'none';
         video.style.filter = 'none';
         
-        // Cancel any ongoing animation frame
+        // cancel any ongoing animation frame
         if (animationFrames[videoId]) {
           cancelAnimationFrame(animationFrames[videoId]);
           animationFrames[videoId] = null;
@@ -940,87 +963,65 @@
         return;
       }
       
-      // Show canvas
+      // show canvas
       canvas.style.display = 'block';
       
-      // Get canvas context if not already cached
+      // get canvas context if not already cached
       if (!canvasContexts[videoId]) {
         canvasContexts[videoId] = canvas.getContext('2d', { 
           alpha: false,
-          desynchronized: true, // Hint for potential performance improvement
-          willReadFrequently: true // Optimize for pixel manipulation
+          desynchronized: true,
+          willReadFrequently: true
         });
       }
       
       const ctx = canvasContexts[videoId];
       
-      // Calculate enhancement values
-      const sharpness = enhancementSettings.sharpness / 50; // 0-2 range
-      const contrast = 1 + (enhancementSettings.contrast - 50) / 50; // 0-2 range
-      const brightness = (enhancementSettings.brightness - 50) / 100; // -0.5 to 0.5 range
-      const saturation = 1 + (enhancementSettings.saturation - 50) / 50; // 0-2 range
-      const denoise = enhancementSettings.denoise / 100; // 0-1 range
+      // calculate enhancement values
+      const sharpness = enhancementSettings.sharpness / 50;
+      const contrast = 1 + (enhancementSettings.contrast - 50) / 50;
+      const brightness = (enhancementSettings.brightness - 50) / 100;
+      const saturation = 1 + (enhancementSettings.saturation - 50) / 50;
+      const denoise = enhancementSettings.denoise / 100;
       
-      // Apply CSS filters for basic enhancements
+      // apply css filters for basic enhancements
       video.style.filter = `contrast(${contrast}) brightness(${1 + brightness}) saturate(${saturation})`;
       
-      // For advanced processing (sharpening), we need to use canvas
-      // Only process if video is playing and has dimensions
+      // for advanced processing (sharpening), use canvas if video is playing and has dimensions
       if (!video.paused && video.videoWidth > 0 && video.videoHeight > 0) {
-        // Set canvas dimensions to match video
         if (canvas.width !== video.videoWidth || canvas.height !== video.videoHeight) {
           canvas.width = video.videoWidth;
           canvas.height = video.videoHeight;
         }
         
-        // Function to process video frame
         function processFrame() {
-          // Draw current video frame to canvas
           ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
           
-          // Apply sharpening if sharpness is above 50%
           if (sharpness > 1) {
             try {
-              // Get image data
               const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
               const data = imageData.data;
               const width = canvas.width;
               const height = canvas.height;
               
-              // Create a copy of the original image data
               const original = new Uint8ClampedArray(data);
-              
-              // Apply unsharp mask (simplified)
-              const strength = (sharpness - 1) * 0.8; // Scale factor
-              
-              // Skip processing every other pixel for performance on high-res videos
+              const strength = (sharpness - 1) * 0.8;
               const skipFactor = (width > 1280) ? 2 : 1;
               
               for (let y = skipFactor; y < height - skipFactor; y += skipFactor) {
                 for (let x = skipFactor; x < width - skipFactor; x += skipFactor) {
                   const pos = (y * width + x) * 4;
-                  
-                  // For each color channel (RGB)
                   for (let c = 0; c < 3; c++) {
-                    // Center pixel
                     const center = original[pos + c];
-                    
-                    // Surrounding pixels (simplified 3x3 kernel)
                     const top = original[pos - width * 4 + c];
                     const bottom = original[pos + width * 4 + c];
                     const left = original[pos - 4 + c];
                     const right = original[pos + 4 + c];
-                    
-                    // Calculate laplacian
                     const laplacian = 4 * center - top - bottom - left - right;
-                    
-                    // Apply sharpening with denoise factor
-                    const denoiseThreshold = 10 * denoise; // Threshold for noise reduction
+                    const denoiseThreshold = 10 * denoise;
                     const sharpValue = (Math.abs(laplacian) > denoiseThreshold) ? laplacian * strength : 0;
-                    
                     data[pos + c] = Math.max(0, Math.min(255, center + sharpValue));
                     
-                    // If using skip factor, copy to adjacent pixels
                     if (skipFactor > 1) {
                       if (x + 1 < width) data[pos + 4 + c] = data[pos + c];
                       if (y + 1 < height) data[pos + width * 4 + c] = data[pos + c];
@@ -1030,20 +1031,17 @@
                 }
               }
               
-              // Put the modified image data back
               ctx.putImageData(imageData, 0, 0);
             } catch (e) {
               console.error('Error applying sharpening:', e);
             }
           }
           
-          // Continue processing frames while video is playing
           if (!video.paused) {
             animationFrames[videoId] = requestAnimationFrame(processFrame);
           }
         }
         
-        // Start processing frames
         if (animationFrames[videoId]) {
           cancelAnimationFrame(animationFrames[videoId]);
         }
@@ -1051,20 +1049,18 @@
       }
     }
     
-    // Function to analyze video quality
+    // function to analyze video quality
     function analyzeVideoQuality(videoId) {
       const video = document.getElementById(videoId);
       
       if (!video || video.videoWidth === 0) return;
       
-      // Store video dimensions
       videoQualityData[videoId] = {
         width: video.videoWidth,
         height: video.videoHeight,
         aspectRatio: video.videoWidth / video.videoHeight
       };
       
-      // Determine actual quality level
       let actualQuality = 'SD';
       if (video.videoHeight >= 1080) {
         actualQuality = 'FHD';
@@ -1072,7 +1068,6 @@
         actualQuality = 'HD';
       }
       
-      // Update quality indicator
       const qualityElement = document.getElementById('quality' + videoId.replace('video', ''));
       if (qualityElement) {
         qualityElement.textContent = actualQuality;
@@ -1080,65 +1075,43 @@
       
       console.log(`Video ${videoId} quality analysis: ${video.videoWidth}x${video.videoHeight}, ${actualQuality}`);
       
-      // Adjust enhancement settings based on video quality
       if (video.videoHeight < 720) {
-        // For lower resolution videos, increase sharpness and contrast
         document.getElementById('sharpnessSlider').value = Math.min(85, enhancementSettings.sharpness + 10);
         document.getElementById('contrastSlider').value = Math.min(70, enhancementSettings.contrast + 5);
         updateEnhancements();
       }
     }
     
-    // Function to change video resolution
+    // function to change video resolution
     function changeResolution(videoId, resolution) {
       const video = document.getElementById(videoId);
       const currentTime = video.currentTime;
       const wasPlaying = !video.paused;
       
-      // Show loading indicator
       showLoading();
       showBuffering(videoId);
       
-      // Update video source
       video.src = videoSources[videoId][resolution];
-      
-      // Set video quality attributes
       video.setAttribute('playsinline', '');
-      
-      // Update quality indicator
       updateQualityIndicator(videoId, resolution);
       
-      // Restore playback state
       video.addEventListener('loadedmetadata', function onceLoaded() {
-        // Analyze video quality
         analyzeVideoQuality(videoId);
-        
         video.currentTime = currentTime;
-        
-        // Set video quality attributes
         if (resolution === '1080p') {
-          video.style.width = '100%'; // Ensure full width
+          video.style.width = '100%';
         }
-        
-        // Hide loading indicator
         hideLoading();
         video.removeEventListener('loadedmetadata', onceLoaded);
       });
       
-      // Handle when video can play
       video.addEventListener('canplay', function onCanPlay() {
         hideBuffering(videoId);
-        
         if (wasPlaying) {
-          // Use a promise to ensure smoother playback
           const playPromise = video.play();
-          
           if (playPromise !== undefined) {
             playPromise.then(_ => {
-              // Playback started successfully
               console.log(`${videoId} playback resumed at ${resolution}`);
-              
-              // Apply enhancements
               applyVideoEnhancements(videoId);
             })
             .catch(error => {
@@ -1146,11 +1119,9 @@
             });
           }
         }
-        
         video.removeEventListener('canplay', onCanPlay);
       });
       
-      // Handle loading errors
       video.addEventListener('error', function onError() {
         console.error('Error loading video:', video.error);
         hideLoading();
@@ -1159,65 +1130,52 @@
       });
     }
     
-    // Function to change default resolution for all videos
+    // function to change default resolution for all videos
     function changeDefaultResolution(resolution) {
       const resolutionSelectors = document.querySelectorAll('.resolution-selector');
       
       resolutionSelectors.forEach(selector => {
         selector.value = resolution;
-        
-        // Get the video ID from the onchange attribute
         const videoId = selector.getAttribute('onchange').split("'")[1];
         changeResolution(videoId, resolution);
       });
     }
     
-    // Function to filter videos by date
+    // function to filter videos by date
     function filterVideos() {
       const filterValue = document.getElementById('videoFilter').value;
       const galleryGrid = document.getElementById('galleryGrid');
       const items = Array.from(galleryGrid.getElementsByClassName('gallery-item'));
       
-      // Sort items based on date
       items.sort((a, b) => {
         const dateA = new Date(a.getAttribute('data-date'));
         const dateB = new Date(b.getAttribute('data-date'));
         
         if (filterValue === 'latest') {
-          return dateB - dateA; // Latest first (descending)
+          return dateB - dateA;
         } else {
-          return dateA - dateB; // Oldest first (ascending)
+          return dateA - dateB;
         }
       });
       
-      // Clear the gallery
       galleryGrid.innerHTML = '';
       
-      // Add sorted items back to the gallery
       items.forEach(item => {
         galleryGrid.appendChild(item);
       });
     }
     
-    // Function to optimize video playback
+    // function to optimize video playback
     function optimizeVideoPlayback(videoElement) {
       const videoId = videoElement.id;
       
-      // Set video attributes for better quality
       videoElement.setAttribute('playsinline', '');
       videoElement.setAttribute('controlsList', 'nodownload');
-      
-      // Force higher quality
       videoElement.style.width = '100%';
       
-      // Add event listeners for quality monitoring
       videoElement.addEventListener('loadedmetadata', function() {
         console.log(`Video ${videoId} metadata loaded: ${videoElement.videoWidth}x${videoElement.videoHeight}`);
-        
-        // Analyze video quality
         analyzeVideoQuality(videoId);
-        
-        // Resize canvas to match video dimensions
         const canvas = document.getElementById('canvas' + videoId.replace('video', ''));
         if (canvas) {
           canvas.width = videoElement.videoWidth;
@@ -1225,63 +1183,48 @@
         }
       });
       
-      // Add event listener for when video starts playing
       videoElement.addEventListener('playing', function() {
         console.log(`Video ${videoId} is playing at quality: ${videoElement.videoWidth}x${videoElement.videoHeight}`);
-        
-        // Hide buffering indicator
         hideBuffering(videoId);
-        
-        // Apply enhancements
         applyVideoEnhancements(videoId);
       });
       
-      // Add event listener for when video is paused
       videoElement.addEventListener('pause', function() {
-        // Cancel animation frame when paused
         if (animationFrames[videoId]) {
           cancelAnimationFrame(animationFrames[videoId]);
         }
       });
       
-      // Add event listener for when video ends
       videoElement.addEventListener('ended', function() {
-        // Cancel animation frame when ended
         if (animationFrames[videoId]) {
           cancelAnimationFrame(animationFrames[videoId]);
         }
       });
       
-      // Add event listener for buffering detection
       videoElement.addEventListener('waiting', function() {
         showBuffering(videoId);
       });
       
-      // Add event listener for when buffering ends
       videoElement.addEventListener('canplay', function() {
         hideBuffering(videoId);
       });
     }
     
-    // Function to preload video thumbnails
+    // function to preload video thumbnails
     function preloadVideoThumbnails() {
       Object.keys(videoSources).forEach(videoId => {
         const video = document.getElementById(videoId);
-        if (!video) return; // Skip if video element doesn't exist
+        if (!video) return;
         
-        // Set poster attribute if available
-        // video.poster = `path/to/thumbnails/${videoId}_thumbnail.jpg`;
-        
-        // Alternatively, load first frame as thumbnail
         video.addEventListener('loadeddata', function() {
-          if (video.readyState >= 2) { // HAVE_CURRENT_DATA or higher
-            video.currentTime = 0.1; // Seek to first frame
+          if (video.readyState >= 2) {
+            video.currentTime = 0.1;
           }
         });
       });
     }
     
-    // Function to check if browser supports hardware acceleration
+    // function to check if browser supports hardware acceleration
     function checkHardwareAcceleration() {
       const canvas = document.createElement('canvas');
       const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -1292,15 +1235,12 @@
           const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
           console.log('GPU Renderer:', renderer);
           
-          // Check if running on software renderer
           const isSoftwareRenderer = renderer.indexOf('SwiftShader') !== -1 || 
                                     renderer.indexOf('Software') !== -1 || 
                                     renderer.indexOf('llvmpipe') !== -1;
           
           if (isSoftwareRenderer) {
             console.warn('Running on software renderer. Video enhancement performance may be limited.');
-            
-            // Reduce enhancement complexity for software renderers
             document.getElementById('sharpnessSlider').value = Math.min(50, enhancementSettings.sharpness);
             document.getElementById('denoiseSlider').value = Math.max(50, enhancementSettings.denoise);
             updateEnhancements();
@@ -1309,48 +1249,33 @@
       }
     }
     
-    // Initialize videos and sorting when page loads
+    // initialize videos and sorting when page loads
     document.addEventListener('DOMContentLoaded', function() {
-      // Check hardware acceleration support
       checkHardwareAcceleration();
-      
-      // Set initial video sources
       const defaultResolution = document.getElementById('defaultResolution').value;
       
-      // Initialize each video with the default resolution
       Object.keys(videoSources).forEach(videoId => {
         const video = document.getElementById(videoId);
-        if (!video) return; // Skip if video element doesn't exist
-        
-        // Set video attributes for better quality
+        if (!video) return;
         video.setAttribute('playsinline', '');
         video.setAttribute('controlsList', 'nodownload');
-        
-        // Set source
         video.src = videoSources[videoId][defaultResolution];
-        
-        // Update quality indicator
         updateQualityIndicator(videoId, defaultResolution);
-        
-        // Optimize video playback
         optimizeVideoPlayback(video);
       });
       
-      // Initialize enhancement sliders
       document.getElementById('sharpnessSlider').value = enhancementSettings.sharpness;
       document.getElementById('contrastSlider').value = enhancementSettings.contrast;
       document.getElementById('brightnessSlider').value = enhancementSettings.brightness;
       document.getElementById('saturationSlider').value = enhancementSettings.saturation;
       document.getElementById('denoiseSlider').value = enhancementSettings.denoise;
       
-      // Update enhancement values display
       document.getElementById('sharpnessValue').textContent = enhancementSettings.sharpness + '%';
       document.getElementById('contrastValue').textContent = enhancementSettings.contrast + '%';
       document.getElementById('brightnessValue').textContent = enhancementSettings.brightness + '%';
       document.getElementById('saturationValue').textContent = enhancementSettings.saturation + '%';
       document.getElementById('denoiseValue').textContent = enhancementSettings.denoise + '%';
       
-      // Set sharp preset as active
       document.querySelectorAll('.preset-button').forEach(button => {
         button.classList.remove('active');
         if (button.textContent.toLowerCase() === 'sharp') {
@@ -1358,36 +1283,22 @@
         }
       });
       
-      // Preload video thumbnails
       preloadVideoThumbnails();
-      
-      // Initialize sorting
       filterVideos();
       
-      // Add window resize handler to maintain video quality
       window.addEventListener('resize', function() {
-        // Reapply quality settings on window resize
         Object.keys(videoSources).forEach(videoId => {
           const video = document.getElementById(videoId);
           if (!video) return;
-          
           const currentResolution = document.querySelector(`select[onchange*="${videoId}"]`).value;
-          
-          // Force higher quality
           video.style.width = '100%';
-          
-          // Update quality indicator
           updateQualityIndicator(videoId, currentResolution);
-          
-          // Reapply enhancements
           applyVideoEnhancements(videoId);
         });
       });
       
-      // Add visibility change handler to pause processing when tab is not visible
       document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-          // Pause all animation frames when tab is not visible
           Object.keys(animationFrames).forEach(videoId => {
             if (animationFrames[videoId]) {
               cancelAnimationFrame(animationFrames[videoId]);
@@ -1395,7 +1306,6 @@
             }
           });
         } else {
-          // Resume processing for playing videos when tab becomes visible again
           Object.keys(videoSources).forEach(videoId => {
             const video = document.getElementById(videoId);
             if (video && !video.paused) {
@@ -1408,4 +1318,3 @@
   </script>
 </body>
 </html>
-
