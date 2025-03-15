@@ -9,14 +9,14 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      margin: 0; 
+      margin: 0;
       padding: 2rem;
       text-align: center;
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
     }
-    
+
     /* add picasso-inspired bubble effects */
     .bubble {
       position: absolute;
@@ -26,7 +26,7 @@
       animation: float 8s ease-in-out infinite;
       z-index: -1;
     }
-    
+
     .bubble:nth-child(1) {
       width: 80px;
       height: 80px;
@@ -35,7 +35,7 @@
       animation-delay: 0s;
       background: radial-gradient(circle at 30% 30%, rgba(255, 182, 193, 0.6), rgba(255, 182, 193, 0.1));
     }
-    
+
     .bubble:nth-child(2) {
       width: 120px;
       height: 120px;
@@ -44,7 +44,7 @@
       animation-delay: 1s;
       background: radial-gradient(circle at 30% 30%, rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.1));
     }
-    
+
     .bubble:nth-child(3) {
       width: 60px;
       height: 60px;
@@ -53,7 +53,7 @@
       animation-delay: 2s;
       background: radial-gradient(circle at 30% 30%, rgba(255, 222, 173, 0.6), rgba(255, 222, 173, 0.1));
     }
-    
+
     .bubble:nth-child(4) {
       width: 100px;
       height: 100px;
@@ -62,7 +62,7 @@
       animation-delay: 3s;
       background: radial-gradient(circle at 30% 30%, rgba(216, 191, 216, 0.6), rgba(216, 191, 216, 0.1));
     }
-    
+
     .bubble:nth-child(5) {
       width: 70px;
       height: 70px;
@@ -71,7 +71,7 @@
       animation-delay: 4s;
       background: radial-gradient(circle at 30% 30%, rgba(152, 251, 152, 0.6), rgba(152, 251, 152, 0.1));
     }
-    
+
     .bubble:nth-child(6) {
       width: 90px;
       height: 90px;
@@ -80,7 +80,7 @@
       animation-delay: 5s;
       background: radial-gradient(circle at 30% 30%, rgba(135, 206, 235, 0.6), rgba(135, 206, 235, 0.1));
     }
-    
+
     @keyframes float {
       0% {
         transform: translateY(0) rotate(0deg);
@@ -92,7 +92,7 @@
         transform: translateY(0) rotate(0deg);
       }
     }
-    
+
     /* add some decorative elements */
     body::before {
       content: "";
@@ -104,7 +104,7 @@
       background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0%, rgba(233, 226, 226, 0.28) 90.1%);
       z-index: -2;
     }
-    
+
     h1 {
       font-size: 2.8rem;
       margin-bottom: 1.5rem;
@@ -112,7 +112,7 @@
       text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
       font-weight: 600;
     }
-    
+
     .back-link {
       display: inline-block;
       margin-bottom: 3rem;
@@ -125,14 +125,14 @@
       background-color: rgba(255, 255, 255, 0.5);
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    
+
     .back-link:hover {
       color: #2a4bbf;
       background-color: rgba(255, 255, 255, 0.8);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
-    
+
     /* filter container styling */
     .filter-container {
       display: flex;
@@ -142,7 +142,7 @@
       max-width: 600px;
       padding: 0 1rem;
     }
-    
+
     /* filter dropdown styling */
     .filter-dropdown {
       padding: 0.5rem 1rem;
@@ -156,18 +156,18 @@
       transition: all 0.2s ease;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    
+
     .filter-dropdown:hover {
       background-color: rgba(255, 255, 255, 0.9);
       box-shadow: 0 3px 7px rgba(0,0,0,0.1);
     }
-    
+
     .filter-dropdown:focus {
       outline: none;
       border-color: #4a6bdf;
       box-shadow: 0 0 0 2px rgba(74, 107, 223, 0.2);
     }
-    
+
     /* changed to vertical layout */
     .gallery-grid {
       display: flex;
@@ -176,7 +176,7 @@
       max-width: 600px;
       margin: 1rem auto;
     }
-    
+
     .gallery-item {
       background: rgba(255, 255, 255, 0.8);
       border-radius: 12px;
@@ -186,12 +186,12 @@
       margin-bottom: 2rem;
       position: relative;
     }
-    
+
     .gallery-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     }
-    
+
     .gallery-item img,
     .gallery-item video {
       width: 100%;
@@ -206,7 +206,7 @@
       will-change: transform;
       transform: translateZ(0);
     }
-    
+
     /* video controls container */
     .video-controls {
       display: flex;
@@ -216,7 +216,7 @@
       background: rgba(245, 245, 245, 0.9);
       border-top: 1px solid rgba(0,0,0,0.05);
     }
-    
+
     /* resolution selector styling */
     .resolution-selector {
       padding: 0.3rem 0.7rem;
@@ -229,21 +229,21 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    
+
     .resolution-selector:hover {
       background-color: rgba(255, 255, 255, 0.9);
     }
-    
+
     .resolution-selector:focus {
       outline: none;
       border-color: #4a6bdf;
     }
-    
+
     /* video date styling for sorting */
     .video-date {
       display: none;
     }
-    
+
     /* loading indicator */
     .loading-indicator {
       display: none;
@@ -257,7 +257,7 @@
       border-radius: 5px;
       z-index: 10;
     }
-    
+
     /* video quality indicator */
     .quality-indicator {
       position: absolute;
@@ -270,7 +270,7 @@
       font-size: 0.8rem;
       z-index: 5;
     }
-    
+
     /* enhancement controls */
     .enhancement-controls {
       display: flex;
@@ -283,7 +283,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    
+
     .enhancement-slider {
       width: 100%;
       margin: 0 10px;
@@ -294,7 +294,7 @@
       background: #ddd;
       outline: none;
     }
-    
+
     .enhancement-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -305,7 +305,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    
+
     .enhancement-slider::-moz-range-thumb {
       width: 18px;
       height: 18px;
@@ -314,17 +314,17 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    
+
     .enhancement-slider::-webkit-slider-thumb:hover {
       background: #2a4bbf;
       transform: scale(1.1);
     }
-    
+
     .enhancement-slider::-moz-range-thumb:hover {
       background: #2a4bbf;
       transform: scale(1.1);
     }
-    
+
     .enhancement-label {
       font-size: 0.9rem;
       color: #333;
@@ -332,14 +332,14 @@
       min-width: 80px;
       text-align: right;
     }
-    
+
     .enhancement-value {
       font-size: 0.9rem;
       color: #333;
       margin-left: 10px;
       min-width: 40px;
     }
-    
+
     /* video wrapper for canvas overlay */
     .video-wrapper {
       position: relative;
@@ -348,7 +348,7 @@
       border-radius: 8px 8px 0 0;
       overflow: hidden;
     }
-    
+
     .canvas-overlay {
       position: absolute;
       top: 0;
@@ -358,7 +358,7 @@
       pointer-events: none;
       border-radius: 8px 8px 0 0;
     }
-    
+
     /* enhancement mode toggle */
     .enhancement-toggle {
       display: flex;
@@ -371,7 +371,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    
+
     .toggle-switch {
       position: relative;
       display: inline-block;
@@ -379,13 +379,13 @@
       height: 34px;
       margin: 0 10px;
     }
-    
+
     .toggle-switch input {
       opacity: 0;
       width: 0;
       height: 0;
     }
-    
+
     .toggle-slider {
       position: absolute;
       cursor: pointer;
@@ -397,7 +397,7 @@
       transition: .4s;
       border-radius: 34px;
     }
-    
+
     .toggle-slider:before {
       position: absolute;
       content: "";
@@ -409,20 +409,20 @@
       transition: .4s;
       border-radius: 50%;
     }
-    
+
     input:checked + .toggle-slider {
       background-color: #4a6bdf;
     }
-    
+
     input:checked + .toggle-slider:before {
       transform: translateX(26px);
     }
-    
+
     .toggle-label {
       font-size: 1rem;
       color: #333;
     }
-    
+
     /* preset buttons */
     .preset-buttons {
       display: flex;
@@ -432,7 +432,7 @@
       margin: 1rem auto;
       max-width: 600px;
     }
-    
+
     .preset-button {
       padding: 8px 16px;
       background: rgba(255, 255, 255, 0.7);
@@ -443,18 +443,18 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    
+
     .preset-button:hover {
       background: rgba(255, 255, 255, 0.9);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    
+
     .preset-button.active {
       background: #4a6bdf;
       color: white;
     }
-    
+
     /* video buffering indicator */
     .buffering-indicator {
       position: absolute;
@@ -470,11 +470,11 @@
       display: none;
       z-index: 10;
     }
-    
+
     @keyframes spin {
       to { transform: translate(-50%, -50%) rotate(360deg); }
     }
-    
+
     /* responsive adjustments */
     @media (max-width: 768px) {
       .enhancement-controls {
@@ -482,16 +482,16 @@
         align-items: stretch;
         padding: 1rem;
       }
-      
+
       .enhancement-label {
         text-align: left;
         margin-bottom: 5px;
       }
-      
+
       .enhancement-slider {
         margin: 5px 0;
       }
-      
+
       .enhancement-value {
         text-align: right;
         margin-top: 5px;
@@ -507,10 +507,10 @@
   <div class="bubble"></div>
   <div class="bubble"></div>
   <div class="bubble"></div>
-  
+
   <h1>My AI Art Gallery</h1>
   <a href="/" class="back-link">← Back to Homepage</a>
-  
+
   <!-- filter container with dropdowns -->
   <div class="filter-container">
     <div>
@@ -528,7 +528,7 @@
       </select>
     </div>
   </div>
-  
+
   <!-- enhancement mode toggle -->
   <div class="enhancement-toggle">
     <span class="toggle-label">Standard Mode</span>
@@ -538,7 +538,7 @@
     </label>
     <span class="toggle-label">Enhanced Mode</span>
   </div>
-  
+
   <!-- preset buttons -->
   <div class="preset-buttons">
     <button class="preset-button" onclick="applyPreset('default')">Default</button>
@@ -547,42 +547,44 @@
     <button class="preset-button" onclick="applyPreset('cinema')">Cinema</button>
     <button class="preset-button" onclick="applyPreset('soft')">Soft</button>
   </div>
-  
+
   <!-- enhancement controls -->
   <div class="enhancement-controls">
     <span class="enhancement-label">Sharpness:</span>
     <input type="range" min="0" max="100" value="85" class="enhancement-slider" id="sharpnessSlider" oninput="updateEnhancements()">
     <span class="enhancement-value" id="sharpnessValue">85%</span>
   </div>
-  
+
   <div class="enhancement-controls">
     <span class="enhancement-label">Contrast:</span>
     <input type="range" min="0" max="100" value="65" class="enhancement-slider" id="contrastSlider" oninput="updateEnhancements()">
     <span class="enhancement-value" id="contrastValue">65%</span>
   </div>
-  
+
   <div class="enhancement-controls">
     <span class="enhancement-label">Brightness:</span>
     <input type="range" min="0" max="100" value="55" class="enhancement-slider" id="brightnessSlider" oninput="updateEnhancements()">
     <span class="enhancement-value" id="brightnessValue">55%</span>
   </div>
-  
+
   <div class="enhancement-controls">
     <span class="enhancement-label">Saturation:</span>
     <input type="range" min="0" max="100" value="60" class="enhancement-slider" id="saturationSlider" oninput="updateEnhancements()">
     <span class="enhancement-value" id="saturationValue">60%</span>
   </div>
-  
+
   <div class="enhancement-controls">
     <span class="enhancement-label">Denoise:</span>
     <input type="range" min="0" max="100" value="20" class="enhancement-slider" id="denoiseSlider" oninput="updateEnhancements()">
     <span class="enhancement-value" id="denoiseValue">20%</span>
   </div>
-  
+
   <!-- loading indicator -->
   <div id="loadingIndicator" class="loading-indicator">Loading video...</div>
-  
+
   <div id="galleryGrid" class="gallery-grid">
+
+    <!-- 1 -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video1" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -600,7 +602,8 @@
       </div>
       <div class="video-date">2025-03-15</div>
     </div>
-    
+
+    <!-- 2 -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video2" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -619,6 +622,7 @@
       <div class="video-date">2025-03-15</div>
     </div>
 
+    <!-- 3 -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video3" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -637,6 +641,7 @@
       <div class="video-date">2025-03-15</div>
     </div>
 
+    <!-- 4 -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video4" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -654,7 +659,8 @@
       </div>
       <div class="video-date">2025-03-15</div>
     </div>
-    
+
+    <!-- 5 -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video5" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -673,6 +679,7 @@
       <div class="video-date">2025-03-15</div>
     </div>
 
+    <!-- 6 -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video6" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -691,6 +698,7 @@
       <div class="video-date">2025-03-15</div>
     </div>
 
+    <!-- 7 -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video7" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -709,7 +717,7 @@
       <div class="video-date">2025-03-15</div>
     </div>
 
-    <!-- video added previously -->
+    <!-- 8 -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video8" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -728,8 +736,8 @@
       <div class="video-date">2025-03-15</div>
     </div>
 
-    <!-- new video added now with oldest date -->
-    <div class="gallery-item" data-date="2025-03-10">
+    <!-- 9: elevate & evolve the ai awakening -->
+    <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video9" controls preload="metadata" controlsList="nodownload" playsinline></video>
         <canvas id="canvas9" class="canvas-overlay"></canvas>
@@ -737,8 +745,27 @@
       </div>
       <div class="quality-indicator" id="quality9">HD</div>
       <div class="video-controls">
-        <div class="video-title">Drifting Beyond Starlight</div>
+        <div class="video-title">Elevate &amp; Evolve The AI Awakening</div>
         <select class="resolution-selector" onchange="changeResolution('video9', this.value)">
+          <option value="480p">480p</option>
+          <option value="720p">720p</option>
+          <option value="1080p" selected>1080p</option>
+        </select>
+      </div>
+      <div class="video-date">2025-03-15</div>
+    </div>
+
+    <!-- 10: drifting beyond starlight (oldest date) -->
+    <div class="gallery-item" data-date="2025-03-10">
+      <div class="video-wrapper">
+        <video id="video10" controls preload="metadata" controlsList="nodownload" playsinline></video>
+        <canvas id="canvas10" class="canvas-overlay"></canvas>
+        <div id="buffering10" class="buffering-indicator"></div>
+      </div>
+      <div class="quality-indicator" id="quality10">HD</div>
+      <div class="video-controls">
+        <div class="video-title">Drifting Beyond Starlight</div>
+        <select class="resolution-selector" onchange="changeResolution('video10', this.value)">
           <option value="480p">480p</option>
           <option value="720p">720p</option>
           <option value="1080p" selected>1080p</option>
@@ -746,10 +773,11 @@
       </div>
       <div class="video-date">2025-03-10</div>
     </div>
+
   </div>
-  
+
   <script>
-    // video sources for different resolutions - using the same url for all resolutions for now
+    // video sources for different resolutions
     const videoSources = {
       'video1': {
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Festival%20of%20Lights.mp4',
@@ -792,19 +820,24 @@
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Home%20-%20A%20Dance%20of%20Chaos%20and%20Connection.mp4'
       },
       'video9': {
+        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Elevate%20&%20Evolve%20The%20AI%20Awakening.mp4',
+        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Elevate%20&%20Evolve%20The%20AI%20Awakening.mp4',
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Elevate%20&%20Evolve%20The%20AI%20Awakening.mp4'
+      },
+      'video10': {
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Drifting%20Beyond%20Starlight.mp4',
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Drifting%20Beyond%20Starlight.mp4',
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Drifting%20Beyond%20Starlight.mp4'
       }
     };
-    
+
     // quality labels for different resolutions
     const qualityLabels = {
       '480p': 'SD',
       '720p': 'HD',
       '1080p': 'FHD'
     };
-    
+
     // enhancement presets
     const presets = {
       'default': {
@@ -843,7 +876,7 @@
         denoise: 60
       }
     };
-    
+
     // enhancement settings
     let enhancementSettings = {
       enabled: true,
@@ -853,26 +886,26 @@
       saturation: 60,
       denoise: 20
     };
-    
+
     // canvas contexts for video processing
     const canvasContexts = {};
-    
+
     // animation frame ids for each video
     const animationFrames = {};
-    
+
     // video quality data
     const videoQualityData = {};
-    
+
     // function to show loading indicator
-    function showLoading()  {
+    function showLoading() {
       document.getElementById('loadingIndicator').style.display = 'block';
     }
-    
+
     // function to hide loading indicator
     function hideLoading() {
       document.getElementById('loadingIndicator').style.display = 'none';
     }
-    
+
     // function to show buffering indicator for a specific video
     function showBuffering(videoId) {
       const bufferingId = 'buffering' + videoId.replace('video', '');
@@ -881,7 +914,7 @@
         bufferingElement.style.display = 'block';
       }
     }
-    
+
     // function to hide buffering indicator for a specific video
     function hideBuffering(videoId) {
       const bufferingId = 'buffering' + videoId.replace('video', '');
@@ -890,7 +923,7 @@
         bufferingElement.style.display = 'none';
       }
     }
-    
+
     // function to update quality indicator
     function updateQualityIndicator(videoId, resolution) {
       const qualityElement = document.getElementById('quality' + videoId.replace('video', ''));
@@ -898,7 +931,7 @@
         qualityElement.textContent = qualityLabels[resolution] || resolution;
       }
     }
-    
+
     // function to apply preset
     function applyPreset(presetName) {
       // update active button state
@@ -908,43 +941,43 @@
           button.classList.add('active');
         }
       });
-      
+
       // apply preset settings
       if (presets[presetName]) {
         const preset = presets[presetName];
-        
+
         // update enhancement settings
         enhancementSettings.sharpness = preset.sharpness;
         enhancementSettings.contrast = preset.contrast;
         enhancementSettings.brightness = preset.brightness;
         enhancementSettings.saturation = preset.saturation;
         enhancementSettings.denoise = preset.denoise;
-        
+
         // update sliders
         document.getElementById('sharpnessSlider').value = preset.sharpness;
         document.getElementById('contrastSlider').value = preset.contrast;
         document.getElementById('brightnessSlider').value = preset.brightness;
         document.getElementById('saturationSlider').value = preset.saturation;
         document.getElementById('denoiseSlider').value = preset.denoise;
-        
+
         // update display values
         document.getElementById('sharpnessValue').textContent = preset.sharpness + '%';
         document.getElementById('contrastValue').textContent = preset.contrast + '%';
         document.getElementById('brightnessValue').textContent = preset.brightness + '%';
         document.getElementById('saturationValue').textContent = preset.saturation + '%';
         document.getElementById('denoiseValue').textContent = preset.denoise + '%';
-        
+
         // apply enhancements
         updateEnhancements();
       }
     }
-    
+
     // function to toggle enhancement mode
     function toggleEnhancementMode() {
       enhancementSettings.enabled = document.getElementById('enhancementToggle').checked;
       updateEnhancements();
     }
-    
+
     // function to update enhancement settings
     function updateEnhancements() {
       // update enhancement values
@@ -953,32 +986,32 @@
       enhancementSettings.brightness = parseInt(document.getElementById('brightnessSlider').value);
       enhancementSettings.saturation = parseInt(document.getElementById('saturationSlider').value);
       enhancementSettings.denoise = parseInt(document.getElementById('denoiseSlider').value);
-      
+
       // update display values
       document.getElementById('sharpnessValue').textContent = enhancementSettings.sharpness + '%';
       document.getElementById('contrastValue').textContent = enhancementSettings.contrast + '%';
       document.getElementById('brightnessValue').textContent = enhancementSettings.brightness + '%';
       document.getElementById('saturationValue').textContent = enhancementSettings.saturation + '%';
       document.getElementById('denoiseValue').textContent = enhancementSettings.denoise + '%';
-      
+
       // apply enhancements to all videos
       Object.keys(videoSources).forEach(videoId => {
         applyVideoEnhancements(videoId);
       });
     }
-    
+
     // function to apply video enhancements
     function applyVideoEnhancements(videoId) {
       const video = document.getElementById(videoId);
       const canvas = document.getElementById('canvas' + videoId.replace('video', ''));
-      
+
       if (!video || !canvas) return;
-      
+
       // if enhancement is disabled, hide canvas and reset video style
       if (!enhancementSettings.enabled) {
         canvas.style.display = 'none';
         video.style.filter = 'none';
-        
+
         // cancel any ongoing animation frame
         if (animationFrames[videoId]) {
           cancelAnimationFrame(animationFrames[videoId]);
@@ -986,52 +1019,52 @@
         }
         return;
       }
-      
+
       // show canvas
       canvas.style.display = 'block';
-      
+
       // get canvas context if not already cached
       if (!canvasContexts[videoId]) {
-        canvasContexts[videoId] = canvas.getContext('2d', { 
+        canvasContexts[videoId] = canvas.getContext('2d', {
           alpha: false,
           desynchronized: true,
           willReadFrequently: true
         });
       }
-      
+
       const ctx = canvasContexts[videoId];
-      
+
       // calculate enhancement values
       const sharpness = enhancementSettings.sharpness / 50;
       const contrast = 1 + (enhancementSettings.contrast - 50) / 50;
       const brightness = (enhancementSettings.brightness - 50) / 100;
       const saturation = 1 + (enhancementSettings.saturation - 50) / 50;
       const denoise = enhancementSettings.denoise / 100;
-      
+
       // apply css filters for basic enhancements
       video.style.filter = `contrast(${contrast}) brightness(${1 + brightness}) saturate(${saturation})`;
-      
+
       // for advanced processing (sharpening), use canvas if video is playing and has dimensions
       if (!video.paused && video.videoWidth > 0 && video.videoHeight > 0) {
         if (canvas.width !== video.videoWidth || canvas.height !== video.videoHeight) {
           canvas.width = video.videoWidth;
           canvas.height = video.videoHeight;
         }
-        
+
         function processFrame() {
           ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-          
+
           if (sharpness > 1) {
             try {
               const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
               const data = imageData.data;
               const width = canvas.width;
               const height = canvas.height;
-              
+
               const original = new Uint8ClampedArray(data);
               const strength = (sharpness - 1) * 0.8;
               const skipFactor = (width > 1280) ? 2 : 1;
-              
+
               for (let y = skipFactor; y < height - skipFactor; y += skipFactor) {
                 for (let x = skipFactor; x < width - skipFactor; x += skipFactor) {
                   const pos = (y * width + x) * 4;
@@ -1045,7 +1078,7 @@
                     const denoiseThreshold = 10 * denoise;
                     const sharpValue = (Math.abs(laplacian) > denoiseThreshold) ? laplacian * strength : 0;
                     data[pos + c] = Math.max(0, Math.min(255, center + sharpValue));
-                    
+
                     if (skipFactor > 1) {
                       if (x + 1 < width) data[pos + 4 + c] = data[pos + c];
                       if (y + 1 < height) data[pos + width * 4 + c] = data[pos + c];
@@ -1054,71 +1087,71 @@
                   }
                 }
               }
-              
+
               ctx.putImageData(imageData, 0, 0);
             } catch (e) {
               console.error('Error applying sharpening:', e);
             }
           }
-          
+
           if (!video.paused) {
             animationFrames[videoId] = requestAnimationFrame(processFrame);
           }
         }
-        
+
         if (animationFrames[videoId]) {
           cancelAnimationFrame(animationFrames[videoId]);
         }
         animationFrames[videoId] = requestAnimationFrame(processFrame);
       }
     }
-    
+
     // function to analyze video quality
     function analyzeVideoQuality(videoId) {
       const video = document.getElementById(videoId);
-      
+
       if (!video || video.videoWidth === 0) return;
-      
+
       videoQualityData[videoId] = {
         width: video.videoWidth,
         height: video.videoHeight,
         aspectRatio: video.videoWidth / video.videoHeight
       };
-      
+
       let actualQuality = 'SD';
       if (video.videoHeight >= 1080) {
         actualQuality = 'FHD';
       } else if (video.videoHeight >= 720) {
         actualQuality = 'HD';
       }
-      
+
       const qualityElement = document.getElementById('quality' + videoId.replace('video', ''));
       if (qualityElement) {
         qualityElement.textContent = actualQuality;
       }
-      
+
       console.log(`Video ${videoId} quality analysis: ${video.videoWidth}x${video.videoHeight}, ${actualQuality}`);
-      
+
       if (video.videoHeight < 720) {
         document.getElementById('sharpnessSlider').value = Math.min(85, enhancementSettings.sharpness + 10);
         document.getElementById('contrastSlider').value = Math.min(70, enhancementSettings.contrast + 5);
         updateEnhancements();
       }
     }
-    
+
     // function to change video resolution
     function changeResolution(videoId, resolution) {
       const video = document.getElementById(videoId);
       const currentTime = video.currentTime;
       const wasPlaying = !video.paused;
-      
+
       showLoading();
       showBuffering(videoId);
-      
+
       video.src = videoSources[videoId][resolution];
       video.setAttribute('playsinline', '');
       updateQualityIndicator(videoId, resolution);
-      
+
       video.addEventListener('loadedmetadata', function onceLoaded() {
         analyzeVideoQuality(videoId);
         video.currentTime = currentTime;
@@ -1128,7 +1161,7 @@
         hideLoading();
         video.removeEventListener('loadedmetadata', onceLoaded);
       });
-      
+
       video.addEventListener('canplay', function onCanPlay() {
         hideBuffering(videoId);
         if (wasPlaying) {
@@ -1145,7 +1178,7 @@
         }
         video.removeEventListener('canplay', onCanPlay);
       });
-      
+
       video.addEventListener('error', function onError() {
         console.error('Error loading video:', video.error);
         hideLoading();
@@ -1153,50 +1186,50 @@
         video.removeEventListener('error', onError);
       });
     }
-    
+
     // function to change default resolution for all videos
     function changeDefaultResolution(resolution) {
       const resolutionSelectors = document.querySelectorAll('.resolution-selector');
-      
+
       resolutionSelectors.forEach(selector => {
         selector.value = resolution;
         const videoId = selector.getAttribute('onchange').split("'")[1];
         changeResolution(videoId, resolution);
       });
     }
-    
+
     // function to filter videos by date
     function filterVideos() {
       const filterValue = document.getElementById('videoFilter').value;
       const galleryGrid = document.getElementById('galleryGrid');
       const items = Array.from(galleryGrid.getElementsByClassName('gallery-item'));
-      
+
       items.sort((a, b) => {
         const dateA = new Date(a.getAttribute('data-date'));
         const dateB = new Date(b.getAttribute('data-date'));
-        
+
         if (filterValue === 'latest') {
-          return dateB - dateA;
+          return dateB - dateA; // newest first
         } else {
-          return dateA - dateB;
+          return dateA - dateB; // oldest first
         }
       });
-      
+
       galleryGrid.innerHTML = '';
-      
+
       items.forEach(item => {
         galleryGrid.appendChild(item);
       });
     }
-    
+
     // function to optimize video playback
     function optimizeVideoPlayback(videoElement) {
       const videoId = videoElement.id;
-      
+
       videoElement.setAttribute('playsinline', '');
       videoElement.setAttribute('controlsList', 'nodownload');
       videoElement.style.width = '100%';
-      
+
       videoElement.addEventListener('loadedmetadata', function() {
         console.log(`Video ${videoId} metadata loaded: ${videoElement.videoWidth}x${videoElement.videoHeight}`);
         analyzeVideoQuality(videoId);
@@ -1206,40 +1239,40 @@
           canvas.height = videoElement.videoHeight;
         }
       });
-      
+
       videoElement.addEventListener('playing', function() {
         console.log(`Video ${videoId} is playing at quality: ${videoElement.videoWidth}x${videoElement.videoHeight}`);
         hideBuffering(videoId);
         applyVideoEnhancements(videoId);
       });
-      
+
       videoElement.addEventListener('pause', function() {
         if (animationFrames[videoId]) {
           cancelAnimationFrame(animationFrames[videoId]);
         }
       });
-      
+
       videoElement.addEventListener('ended', function() {
         if (animationFrames[videoId]) {
           cancelAnimationFrame(animationFrames[videoId]);
         }
       });
-      
+
       videoElement.addEventListener('waiting', function() {
         showBuffering(videoId);
       });
-      
+
       videoElement.addEventListener('canplay', function() {
         hideBuffering(videoId);
       });
     }
-    
+
     // function to preload video thumbnails
     function preloadVideoThumbnails() {
       Object.keys(videoSources).forEach(videoId => {
         const video = document.getElementById(videoId);
         if (!video) return;
-        
+
         video.addEventListener('loadeddata', function() {
           if (video.readyState >= 2) {
             video.currentTime = 0.1;
@@ -1247,22 +1280,22 @@
         });
       });
     }
-    
+
     // function to check if browser supports hardware acceleration
     function checkHardwareAcceleration() {
       const canvas = document.createElement('canvas');
       const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      
+
       if (gl) {
         const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
         if (debugInfo) {
           const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
           console.log('GPU Renderer:', renderer);
-          
-          const isSoftwareRenderer = renderer.indexOf('SwiftShader') !== -1 || 
-                                    renderer.indexOf('Software') !== -1 || 
+
+          const isSoftwareRenderer = renderer.indexOf('SwiftShader') !== -1 ||
+                                    renderer.indexOf('Software') !== -1 ||
                                     renderer.indexOf('llvmpipe') !== -1;
-          
+
           if (isSoftwareRenderer) {
             console.warn('Running on software renderer. Video enhancement performance may be limited.');
             document.getElementById('sharpnessSlider').value = Math.min(50, enhancementSettings.sharpness);
@@ -1272,12 +1305,12 @@
         }
       }
     }
-    
+
     // initialize videos and sorting when page loads
     document.addEventListener('DOMContentLoaded', function() {
       checkHardwareAcceleration();
       const defaultResolution = document.getElementById('defaultResolution').value;
-      
+
       Object.keys(videoSources).forEach(videoId => {
         const video = document.getElementById(videoId);
         if (!video) return;
@@ -1287,29 +1320,29 @@
         updateQualityIndicator(videoId, defaultResolution);
         optimizeVideoPlayback(video);
       });
-      
+
       document.getElementById('sharpnessSlider').value = enhancementSettings.sharpness;
       document.getElementById('contrastSlider').value = enhancementSettings.contrast;
       document.getElementById('brightnessSlider').value = enhancementSettings.brightness;
       document.getElementById('saturationSlider').value = enhancementSettings.saturation;
       document.getElementById('denoiseSlider').value = enhancementSettings.denoise;
-      
+
       document.getElementById('sharpnessValue').textContent = enhancementSettings.sharpness + '%';
       document.getElementById('contrastValue').textContent = enhancementSettings.contrast + '%';
       document.getElementById('brightnessValue').textContent = enhancementSettings.brightness + '%';
       document.getElementById('saturationValue').textContent = enhancementSettings.saturation + '%';
       document.getElementById('denoiseValue').textContent = enhancementSettings.denoise + '%';
-      
+
       document.querySelectorAll('.preset-button').forEach(button => {
         button.classList.remove('active');
         if (button.textContent.toLowerCase() === 'sharp') {
           button.classList.add('active');
         }
       });
-      
+
       preloadVideoThumbnails();
       filterVideos();
-      
+
       window.addEventListener('resize', function() {
         Object.keys(videoSources).forEach(videoId => {
           const video = document.getElementById(videoId);
@@ -1320,7 +1353,7 @@
           applyVideoEnhancements(videoId);
         });
       });
-      
+
       document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
           Object.keys(animationFrames).forEach(videoId => {
