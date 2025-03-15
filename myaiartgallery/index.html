@@ -654,6 +654,24 @@
       </div>
       <div class="video-date">2025-03-15</div>
     </div>
+    
+    <div class="gallery-item" data-date="2025-03-15">
+      <div class="video-wrapper">
+        <video id="video5" controls preload="metadata" controlsList="nodownload" playsinline></video>
+        <canvas id="canvas5" class="canvas-overlay"></canvas>
+        <div id="buffering5" class="buffering-indicator"></div>
+      </div>
+      <div class="quality-indicator" id="quality5">HD</div>
+      <div class="video-controls">
+        <div class="video-title">Dreamer's Dilemma</div>
+        <select class="resolution-selector" onchange="changeResolution('video5', this.value)">
+          <option value="480p">480p</option>
+          <option value="720p">720p</option>
+          <option value="1080p" selected>1080p</option>
+        </select>
+      </div>
+      <div class="video-date">2025-03-15</div>
+    </div>
   </div>
   
   <script>
@@ -681,9 +699,9 @@
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Murthy.mp4'
       },
       'video5': {
-        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Dreamer's%20Dilemma.mp4',
-        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Dreamer's%20Dilemma.mp4',
-        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Dreamer's%20Dilemma.mp4'
+        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Dreamer%27s%20Dilemma.mp4',
+        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Dreamer%27s%20Dilemma.mp4',
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos/Dreamer%27s%20Dilemma.mp4'
       }
     };
     
