@@ -709,7 +709,7 @@
       <div class="video-date">2025-03-15</div>
     </div>
 
-    <!-- new video added -->
+    <!-- new video added previously -->
     <div class="gallery-item" data-date="2025-03-15">
       <div class="video-wrapper">
         <video id="video8" controls preload="metadata" controlsList="nodownload" playsinline></video>
@@ -720,6 +720,25 @@
       <div class="video-controls">
         <div class="video-title">Home - A Dance of Chaos and Connection</div>
         <select class="resolution-selector" onchange="changeResolution('video8', this.value)">
+          <option value="480p">480p</option>
+          <option value="720p">720p</option>
+          <option value="1080p" selected>1080p</option>
+        </select>
+      </div>
+      <div class="video-date">2025-03-15</div>
+    </div>
+
+    <!-- new video added now -->
+    <div class="gallery-item" data-date="2025-03-15">
+      <div class="video-wrapper">
+        <video id="video9" controls preload="metadata" controlsList="nodownload" playsinline></video>
+        <canvas id="canvas9" class="canvas-overlay"></canvas>
+        <div id="buffering9" class="buffering-indicator"></div>
+      </div>
+      <div class="quality-indicator" id="quality9">HD</div>
+      <div class="video-controls">
+        <div class="video-title">Elevate &amp; Evolve The AI Awakening</div>
+        <select class="resolution-selector" onchange="changeResolution('video9', this.value)">
           <option value="480p">480p</option>
           <option value="720p">720p</option>
           <option value="1080p" selected>1080p</option>
@@ -771,6 +790,11 @@
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Home%20-%20A%20Dance%20of%20Chaos%20and%20Connection.mp4',
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Home%20-%20A%20Dance%20of%20Chaos%20and%20Connection.mp4',
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Home%20-%20A%20Dance%20of%20Chaos%20and%20Connection.mp4'
+      },
+      'video9': {
+        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Elevate%20&%20Evolve%20The%20AI%20Awakening.mp4',
+        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Elevate%20&%20Evolve%20The%20AI%20Awakening.mp4',
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Elevate%20&%20Evolve%20The%20AI%20Awakening.mp4'
       }
     };
     
