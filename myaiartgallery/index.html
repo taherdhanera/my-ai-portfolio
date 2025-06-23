@@ -814,6 +814,27 @@
 
   </div>
 
+  <!-- 13: Wild at Work (latest date) -->
+    <div class="gallery-item" data-date="2025-06-24">
+      <div class="video-wrapper">
+        <video id="video13" controls preload="metadata" controlsList="nodownload" playsinline></video>
+        <canvas id="canvas13" class="canvas-overlay"></canvas>
+        <div id="buffering13" class="buffering-indicator"></div>
+      </div>
+      <div class="quality-indicator" id="quality13">HD</div>
+      <div class="video-controls">
+        <div class="video-title">Wild at Work </div>
+        <select class="resolution-selector" onchange="changeResolution('video12', this.value)">
+          <option value="480p">480p</option>
+          <option value="720p">720p</option>
+          <option value="1080p" selected>1080p</option>
+        </select>
+      </div>
+      <div class="video-date">2025-06-07</div>
+    </div>
+
+  </div>
+
   <script>
     // video sources for different resolutions
     const videoSources = {
@@ -876,6 +897,12 @@
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Hum%20Kabhi%20Mile%20The.mp4',
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Hum%20Kabhi%20Mile%20The.mp4',
         '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Hum%20Kabhi%20Mile%20The.mp4'
+    
+      },
+      'video13': {
+        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Wild%20at%20Work.mp4',
+        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Wild%20at%20Work.mp4',
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Wild%20at%20Work.mp4'
     
       }
 
