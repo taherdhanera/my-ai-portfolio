@@ -831,8 +831,27 @@
       <div class="video-date">2025-06-07</div>
     </div>
 
-  </div>
+   <!-- 14: The Last Passenger Never Returns (latest date) -->
+    <div class="gallery-item" data-date="2025-06-30">
+      <div class="video-wrapper">
+        <video id="video14" controls preload="metadata" controlsList="nodownload" playsinline></video>
+        <canvas id="canvas14" class="canvas-overlay"></canvas>
+        <div id="buffering14" class="buffering-indicator"></div>
+      </div>
+      <div class="quality-indicator" id="quality14">HD</div>
+      <div class="video-controls">
+        <div class="video-title">The Last Passenger Never Returns </div>
+        <select class="resolution-selector" onchange="changeResolution('video14', this.value)">
+          <option value="480p">480p</option>
+          <option value="720p">720p</option>
+          <option value="1080p" selected>1080p</option>
+        </select>
+      </div>
+      <div class="video-date">2025-06-30</div>
+    </div>
 
+  </div>
+  
   <script>
     // video sources for different resolutions
     const videoSources = {
@@ -900,7 +919,13 @@
       'video13': {
         '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Wild%20at%20Work.mp4',
         '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Wild%20at%20Work.mp4',
-        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Wild%20at%20Work.mp4'
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//Wild%20at%20Work.m
+
+    },
+      'video14': {
+        '480p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//The%20Last%20Passenger%20Never%20Returns.mp4',
+        '720p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//The%20Last%20Passenger%20Never%20Returns.mp4',
+        '1080p': 'https://wsymagxhyzqeilrtjvmo.supabase.co/storage/v1/object/public/videos//The%20Last%20Passenger%20Never%20Returns.mp4'
     
       }
 
